@@ -42,6 +42,7 @@ public class AgentProvider : IResourceProvider<AgentResource>
       resource.Password,
       resource.SshKey);
     installer.UninstallK3SAgent();
+
     return Task.CompletedTask;
   }
 
@@ -49,6 +50,7 @@ public class AgentProvider : IResourceProvider<AgentResource>
   {
     var installer = resource.CreateInstaller();
     resource.Token = installer.GetK3SServerToken();
+
     return Task.FromResult(resource);
   }
 

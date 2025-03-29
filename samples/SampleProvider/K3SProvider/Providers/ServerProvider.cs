@@ -47,6 +47,7 @@ public class ServerProvider : IResourceProvider<ServerResource>
   {
     var installer = resource.CreateInstaller();
     installer.UninstallK3SServer();
+
     return Task.CompletedTask;
   }
 

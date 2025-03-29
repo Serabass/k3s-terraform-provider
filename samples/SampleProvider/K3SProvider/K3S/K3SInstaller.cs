@@ -16,9 +16,7 @@ public class K3SInstaller
 
   public K3SInstaller(string host, int port, string username, string password, string sshKey)
   {
-    Console.WriteLine(
-      $"host: {host}, port: {port}, username: {username}, password: {password}, sshKey: {sshKey}"
-    );
+    Console.WriteLine($"host: {host}, port: {port}, username: {username}, password: {password}, sshKey: {sshKey}");
     _host = host;
     _port = port;
     _username = username;
