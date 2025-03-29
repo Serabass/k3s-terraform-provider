@@ -1,4 +1,4 @@
-namespace SampleProvider.K3S;
+namespace K3SProvider.K3S;
 
 using System.IO;
 using Renci.SshNet;

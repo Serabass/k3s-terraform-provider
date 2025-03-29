@@ -2,14 +2,14 @@
 using MessagePack;
 using TerraformPluginDotNet.Resources;
 
-namespace SampleProvider;
+namespace K3SProvider;
 
 [SchemaVersion(1)]
 [MessagePackObject]
 public class ClusterResource
 {
-    [Key("name")]
-    [Description("Name of the cluster.")]
-    [Required]
-    public string Name { get; set; } = null!;
+  [Key("name")]
+  [Description("Name of the cluster.")]
+  [Required]
+  public string Name { get; set; } = null!;
 }
