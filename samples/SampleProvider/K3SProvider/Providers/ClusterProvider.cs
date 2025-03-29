@@ -1,15 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using K3SProvider.Resources;
 using TerraformPluginDotNet.ResourceProvider;
 
-namespace K3SProvider;
+namespace K3SProvider.Providers;
 
-public class K3SClusterProvider : IResourceProvider<ClusterResource>
+public class ClusterProvider : IResourceProvider<ClusterResource>
 {
   private readonly SampleConfigurator _configurator;
 
-  public K3SClusterProvider(SampleConfigurator configurator)
+  public ClusterProvider(SampleConfigurator configurator)
   {
     _configurator = configurator;
   }

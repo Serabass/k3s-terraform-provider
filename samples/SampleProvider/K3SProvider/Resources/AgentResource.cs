@@ -3,7 +3,7 @@ using K3SProvider.K3S;
 using MessagePack;
 using TerraformPluginDotNet.Resources;
 
-namespace K3SProvider;
+namespace K3SProvider.Resources;
 
 [SchemaVersion(1)]
 [MessagePackObject]

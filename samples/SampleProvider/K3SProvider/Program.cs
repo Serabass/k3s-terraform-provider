@@ -1,4 +1,6 @@
 ﻿using System.Threading.Tasks;
+using K3SProvider.Providers;
+using K3SProvider.Resources;
 using Microsoft.Extensions.DependencyInjection;
 using TerraformPluginDotNet;
 using TerraformPluginDotNet.ResourceProvider;
@@ -18,7 +20,11 @@ class Program
       {
         services.AddSingleton<SampleConfigurator>();
         services.AddTerraformProviderConfigurator<Configuration, SampleConfigurator>();
-        services.AddSingleton<IResourceProvider<ClusterResource>, K3SClusterProvider>();
+
+        services.AddSingleton<IResourceProvider<ClusterResource>, ClusterProvider>();
+        services.AddSingleton<IResourceProvider<ServerResource>, ServerProvider>();
+        services.AddSingleton<IResourceProvider<AgentResource>, AgentProvider>();
+
         registry.RegisterResource<ClusterResource>("k3s_cluster");
         registry.RegisterResource<ServerResource>("k3s_server");
         registry.RegisterResource<AgentResource>("k3s_agent");

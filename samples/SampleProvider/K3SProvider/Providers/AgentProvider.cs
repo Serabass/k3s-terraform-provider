@@ -2,15 +2,16 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using K3SProvider.K3S;
+using K3SProvider.Resources;
 using TerraformPluginDotNet.ResourceProvider;
 
-namespace K3SProvider;
+namespace K3SProvider.Providers;
 
-public class K3SAgentProvider : IResourceProvider<AgentResource>
+public class AgentProvider : IResourceProvider<AgentResource>
 {
   private readonly SampleConfigurator _configurator;
 
-  public K3SAgentProvider(SampleConfigurator configurator)
+  public AgentProvider(SampleConfigurator configurator)
   {
     _configurator = configurator;
   }

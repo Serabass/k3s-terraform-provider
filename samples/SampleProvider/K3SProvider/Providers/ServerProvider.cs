@@ -4,15 +4,16 @@ using System.IO;
 using System.Text;
 using System.Threading.Tasks;
 using K3SProvider.K3S;
+using K3SProvider.Resources;
 using TerraformPluginDotNet.ResourceProvider;
 
-namespace K3SProvider;
+namespace K3SProvider.Providers;
 
-public class K3SServerProvider : IResourceProvider<ServerResource>
+public class ServerProvider : IResourceProvider<ServerResource>
 {
   private readonly SampleConfigurator _configurator;
 
-  public K3SServerProvider(SampleConfigurator configurator)
+  public ServerProvider(SampleConfigurator configurator)
   {
     _configurator = configurator;
   }
