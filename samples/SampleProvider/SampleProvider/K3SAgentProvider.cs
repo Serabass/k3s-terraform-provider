@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Text;
 using System.Threading.Tasks;
+using SampleProvider.K3S;
 using TerraformPluginDotNet.ResourceProvider;
 
 namespace SampleProvider;
@@ -23,8 +23,14 @@ public class K3SAgentProvider : IResourceProvider<AgentResource>
 
     public async Task<AgentResource> CreateAsync(AgentResource planned)
     {
-        planned.Id = Guid.NewGuid().ToString();
-        await File.WriteAllTextAsync(planned.Path, BuildContent(planned.Content));
+        var installer = new K3SInstaller(
+            planned.Host,
+            planned.Port,
+            planned.Username,
+            planned.Password,
+            planned.SshKey
+        );
+        installer.InstallK3SAgentAsync(planned.Version, planned.Url, planned.Token);
         return planned;
     }
 

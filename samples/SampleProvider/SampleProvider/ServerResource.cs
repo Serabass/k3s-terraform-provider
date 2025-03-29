@@ -29,6 +29,7 @@ public class ServerResource
 
     [Key("username")]
     [Description("Username of the server.")]
+    [Required]
     public string Username { get; set; } = null!;
 
     [Key("password")]
@@ -42,4 +43,8 @@ public class ServerResource
     [Key("token")]
     [Description("Token of the server.")]
     public string Token { get; set; } = null!;
+
+    [Key("version")]
+    [Description("Version of the server.")]
+    public string Version { get; set; } = null!;
 }

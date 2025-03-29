@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text;
 using System.Threading.Tasks;
+using SampleProvider.K3S;
 using TerraformPluginDotNet.ResourceProvider;
 
 namespace SampleProvider;
@@ -18,13 +19,35 @@ public class K3SServerProvider : IResourceProvider<ServerResource>
 
     public Task<ServerResource> PlanAsync(ServerResource? prior, ServerResource proposed)
     {
+        if (prior is null)
+            throw new TerraformResourceProviderException("Prior resource is required.");
+
+        K3SInstaller installer = new(
+            prior.Host,
+            prior.Port,
+            prior.Username,
+            prior.Password,
+            prior.SshKey
+        );
+
+        if (proposed.Host != prior.Host || proposed.Port != prior.Port || proposed.Username != prior.Username || proposed.Password != prior.Password || proposed.SshKey != prior.SshKey)
+        {
+            throw new TerraformResourceProviderException("Cannot change host, port, username, password, or ssh key.");
+        }
+
         return Task.FromResult(proposed);
     }
 
     public async Task<ServerResource> CreateAsync(ServerResource planned)
     {
-        planned.Id = Guid.NewGuid().ToString();
-        await File.WriteAllTextAsync(planned.Path, BuildContent(planned.Content));
+        var installer = new K3SInstaller(
+            planned.Host,
+            planned.Port,
+            planned.Username,
+            planned.Password,
+            planned.SshKey
+        );
+        installer.InstallK3SServerAsync(planned.Version);
         return planned;
     }
 

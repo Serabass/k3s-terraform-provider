@@ -29,6 +29,7 @@ public class AgentResource
 
     [Key("username")]
     [Description("Username of the server.")]
+    [Required]
     public string Username { get; set; } = null!;
 
     [Key("password")]
