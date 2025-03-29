@@ -47,11 +47,11 @@ public class K3SAgentProvider : IResourceProvider<AgentResource>
         return Task.CompletedTask;
     }
 
-    public async Task<AgentResource> ReadAsync(AgentResource resource)
+    public Task<AgentResource> ReadAsync(AgentResource resource)
     {
-        var content = await File.ReadAllTextAsync(resource.Path);
-        resource.Content = content;
-        return resource;
+        var installer = resource.CreateInstaller();
+        resource.Token = installer.GetK3SAgentToken();
+        return Task.FromResult(resource);
     }
 
     public Task<AgentResource> UpdateAsync(AgentResource? prior, AgentResource planned)

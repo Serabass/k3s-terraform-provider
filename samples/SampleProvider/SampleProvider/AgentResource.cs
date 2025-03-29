@@ -1,5 +1,6 @@
 using System.ComponentModel;
 using MessagePack;
+using SampleProvider.K3S;
 using TerraformPluginDotNet.Resources;
 
 namespace SampleProvider;
@@ -51,4 +52,6 @@ public class AgentResource
     [Key("token")]
     [Description("Token of the server.")]
     public string Token { get; set; } = null!;
+
+    public K3SInstaller CreateInstaller() => new(Host, Port, Username, Password, SshKey);
 }
