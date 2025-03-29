@@ -16,7 +16,9 @@ public class K3SInstaller
 
   public K3SInstaller(string host, int port, string username, string password, string sshKey)
   {
-    Console.WriteLine($"host: {host}, port: {port}, username: {username}, password: {password}, sshKey: {sshKey}");
+    Console.WriteLine(
+      $"host: {host}, port: {port}, username: {username}, password: {password}, sshKey: {sshKey}"
+    );
     _host = host;
     _port = port;
     _username = username;
@@ -33,9 +35,7 @@ public class K3SInstaller
   public string InstallK3SServer(string version)
   {
     using var sshClient = new SshClient(_connectionInfo);
-    using var sftpClient = new SftpClient(_connectionInfo);
     sshClient.Connect();
-    sftpClient.Connect();
 
     var command = $"curl -sfL https://get.k3s.io | INSTALL_K3S_VERSION={version} sh -";
     var result = sshClient.RunCommand(command);
@@ -45,9 +45,7 @@ public class K3SInstaller
   public string InstallK3SAgent(string version, string url, string token)
   {
     using var sshClient = new SshClient(_connectionInfo);
-    using var sftpClient = new SftpClient(_connectionInfo);
     sshClient.Connect();
-    sftpClient.Connect();
 
     var command =
       $"curl -sfL https://get.k3s.io | INSTALL_K3S_VERSION={version} K3S_URL={url} K3S_TOKEN={token} sh -";

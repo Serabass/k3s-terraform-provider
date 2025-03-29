@@ -285,3 +285,207 @@ System.ArgumentException: username
 2025-03-29 19:03:55.014 +05:00 [INF] Request finished HTTP/2 POST https://localhost/tfplugin5.Provider/UpgradeResourceState application/grpc - - 200 - application/grpc 10.6843ms
 2025-03-29 19:03:55.015 +05:00 [INF] Request starting HTTP/2 POST https://localhost/tfplugin5.Provider/ApplyResourceChange application/grpc -
 2025-03-29 19:03:55.020 +05:00 [INF] Request finished HTTP/2 POST https://localhost/tfplugin5.Provider/ApplyResourceChange application/grpc - - 200 - application/grpc 5.3828ms
+2025-03-29 19:05:40.016 +05:00 [INF] Now listening on: https://localhost:5344
+2025-03-29 19:05:40.033 +05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-03-29 19:05:40.034 +05:00 [INF] Hosting environment: Production
+2025-03-29 19:05:40.034 +05:00 [INF] Content root path: M:\dev\csharp\k3s-terraform-provider\test
+2025-03-29 19:05:44.080 +05:00 [INF] Now listening on: https://localhost:5344
+2025-03-29 19:05:44.094 +05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-03-29 19:05:44.096 +05:00 [INF] Hosting environment: Production
+2025-03-29 19:05:44.096 +05:00 [INF] Content root path: M:\dev\csharp\k3s-terraform-provider\test
+2025-03-29 19:05:49.184 +05:00 [INF] Now listening on: https://localhost:5344
+2025-03-29 19:05:49.202 +05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-03-29 19:05:49.203 +05:00 [INF] Hosting environment: Production
+2025-03-29 19:05:49.203 +05:00 [INF] Content root path: M:\dev\csharp\k3s-terraform-provider\test
+2025-03-29 19:05:49.547 +05:00 [INF] Request starting HTTP/2 POST https://localhost/tfplugin5.Provider/PlanResourceChange application/grpc -
+2025-03-29 19:05:49.571 +05:00 [INF] Request finished HTTP/2 POST https://localhost/tfplugin5.Provider/PlanResourceChange application/grpc - - 200 - application/grpc 24.3000ms
+2025-03-29 19:05:49.574 +05:00 [INF] Request starting HTTP/2 POST https://localhost/tfplugin5.Provider/PlanResourceChange application/grpc -
+2025-03-29 19:05:49.588 +05:00 [ERR] Error when executing service method 'PlanResourceChange'.
+MessagePack.MessagePackSerializationException: Failed to deserialize K3SProvider.Resources.ServerResource value.
+ ---> MessagePack.MessagePackSerializationException: Unexpected msgpack code 212 (fixext 1) encountered.
+   at MessagePack.MessagePackReader.ThrowInvalidCode(Byte code)
+   at MessagePack.MessagePackReader.GetStringLengthInBytes()
+   at MessagePack.Formatters.NullableStringFormatter.Deserialize(MessagePackReader& reader, MessagePackSerializerOptions options)
+   at MessagePack.Formatters.K3SProvider_Resources_ServerResourceFormatter3.Deserialize(MessagePackReader& reader, MessagePackSerializerOptions options)
+   at MessagePack.MessagePackSerializer.Deserialize[T](MessagePackReader& reader, MessagePackSerializerOptions options)
+   --- End of inner exception stack trace ---
+   at MessagePack.MessagePackSerializer.Deserialize[T](MessagePackReader& reader, MessagePackSerializerOptions options)
+   at MessagePack.MessagePackSerializer.Deserialize[T](ReadOnlyMemory`1 buffer, MessagePackSerializerOptions options, CancellationToken cancellationToken)
+   at TerraformPluginDotNet.Serialization.DefaultDynamicValueSerializer.DeserializeMsgPack[T](ReadOnlyMemory`1 value) in M:\dev\csharp\k3s-terraform-provider\TerraformPluginDotNet\Serialization\DefaultDynamicValueSerializer.cs:line 16
+   at TerraformPluginDotNet.ResourceProvider.ResourceProviderHost`1.DeserializeDynamicValue(DynamicValue value) in M:\dev\csharp\k3s-terraform-provider\TerraformPluginDotNet\ResourceProvider\ResourceProviderHost.cs:line 111
+   at TerraformPluginDotNet.ResourceProvider.ResourceProviderHost`1.PlanResourceChange(Request request) in M:\dev\csharp\k3s-terraform-provider\TerraformPluginDotNet\ResourceProvider\ResourceProviderHost.cs:line 49
+   at Grpc.Shared.Server.UnaryServerMethodInvoker`3.AwaitInvoker(Task`1 invokerTask, GrpcActivatorHandle`1 serviceHandle)
+   at Grpc.Shared.Server.UnaryServerMethodInvoker`3.AwaitInvoker(Task`1 invokerTask, GrpcActivatorHandle`1 serviceHandle)
+   at Grpc.AspNetCore.Server.Internal.CallHandlers.UnaryServerCallHandler`3.HandleCallAsyncCore(HttpContext httpContext, HttpContextServerCallContext serverCallContext)
+   at Grpc.AspNetCore.Server.Internal.CallHandlers.ServerCallHandlerBase`3.<HandleCallAsync>g__AwaitHandleCall|8_0(HttpContextServerCallContext serverCallContext, Method`2 method, Task handleCall)
+2025-03-29 19:05:49.606 +05:00 [INF] Request finished HTTP/2 POST https://localhost/tfplugin5.Provider/PlanResourceChange application/grpc - - 200 0 application/grpc 31.1651ms
+2025-03-29 19:05:54.288 +05:00 [INF] Now listening on: https://localhost:5344
+2025-03-29 19:05:54.307 +05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-03-29 19:05:54.308 +05:00 [INF] Hosting environment: Production
+2025-03-29 19:05:54.308 +05:00 [INF] Content root path: M:\dev\csharp\k3s-terraform-provider\test
+2025-03-29 19:05:58.100 +05:00 [INF] Now listening on: https://localhost:5344
+2025-03-29 19:05:58.115 +05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-03-29 19:05:58.117 +05:00 [INF] Hosting environment: Production
+2025-03-29 19:05:58.117 +05:00 [INF] Content root path: M:\dev\csharp\k3s-terraform-provider\test
+2025-03-29 19:06:02.079 +05:00 [INF] Now listening on: https://localhost:5344
+2025-03-29 19:06:02.093 +05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-03-29 19:06:02.096 +05:00 [INF] Hosting environment: Production
+2025-03-29 19:06:02.096 +05:00 [INF] Content root path: M:\dev\csharp\k3s-terraform-provider\test
+2025-03-29 19:06:02.420 +05:00 [INF] Request starting HTTP/2 POST https://localhost/tfplugin5.Provider/PlanResourceChange application/grpc -
+2025-03-29 19:06:02.446 +05:00 [INF] Request finished HTTP/2 POST https://localhost/tfplugin5.Provider/PlanResourceChange application/grpc - - 200 - application/grpc 25.4791ms
+2025-03-29 19:06:02.448 +05:00 [INF] Request starting HTTP/2 POST https://localhost/tfplugin5.Provider/PlanResourceChange application/grpc -
+2025-03-29 19:06:02.466 +05:00 [ERR] Error when executing service method 'PlanResourceChange'.
+MessagePack.MessagePackSerializationException: Failed to deserialize K3SProvider.Resources.ServerResource value.
+ ---> MessagePack.MessagePackSerializationException: Unexpected msgpack code 212 (fixext 1) encountered.
+   at MessagePack.MessagePackReader.ThrowInvalidCode(Byte code)
+   at MessagePack.MessagePackReader.GetStringLengthInBytes()
+   at MessagePack.Formatters.NullableStringFormatter.Deserialize(MessagePackReader& reader, MessagePackSerializerOptions options)
+   at MessagePack.Formatters.K3SProvider_Resources_ServerResourceFormatter3.Deserialize(MessagePackReader& reader, MessagePackSerializerOptions options)
+   at MessagePack.MessagePackSerializer.Deserialize[T](MessagePackReader& reader, MessagePackSerializerOptions options)
+   --- End of inner exception stack trace ---
+   at MessagePack.MessagePackSerializer.Deserialize[T](MessagePackReader& reader, MessagePackSerializerOptions options)
+   at MessagePack.MessagePackSerializer.Deserialize[T](ReadOnlyMemory`1 buffer, MessagePackSerializerOptions options, CancellationToken cancellationToken)
+   at TerraformPluginDotNet.Serialization.DefaultDynamicValueSerializer.DeserializeMsgPack[T](ReadOnlyMemory`1 value) in M:\dev\csharp\k3s-terraform-provider\TerraformPluginDotNet\Serialization\DefaultDynamicValueSerializer.cs:line 16
+   at TerraformPluginDotNet.ResourceProvider.ResourceProviderHost`1.DeserializeDynamicValue(DynamicValue value) in M:\dev\csharp\k3s-terraform-provider\TerraformPluginDotNet\ResourceProvider\ResourceProviderHost.cs:line 111
+   at TerraformPluginDotNet.ResourceProvider.ResourceProviderHost`1.PlanResourceChange(Request request) in M:\dev\csharp\k3s-terraform-provider\TerraformPluginDotNet\ResourceProvider\ResourceProviderHost.cs:line 49
+   at Grpc.Shared.Server.UnaryServerMethodInvoker`3.AwaitInvoker(Task`1 invokerTask, GrpcActivatorHandle`1 serviceHandle)
+   at Grpc.Shared.Server.UnaryServerMethodInvoker`3.AwaitInvoker(Task`1 invokerTask, GrpcActivatorHandle`1 serviceHandle)
+   at Grpc.AspNetCore.Server.Internal.CallHandlers.UnaryServerCallHandler`3.HandleCallAsyncCore(HttpContext httpContext, HttpContextServerCallContext serverCallContext)
+   at Grpc.AspNetCore.Server.Internal.CallHandlers.ServerCallHandlerBase`3.<HandleCallAsync>g__AwaitHandleCall|8_0(HttpContextServerCallContext serverCallContext, Method`2 method, Task handleCall)
+2025-03-29 19:06:02.482 +05:00 [INF] Request finished HTTP/2 POST https://localhost/tfplugin5.Provider/PlanResourceChange application/grpc - - 200 0 application/grpc 33.4732ms
+2025-03-29 19:07:46.349 +05:00 [INF] Now listening on: https://localhost:5344
+2025-03-29 19:07:46.359 +05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-03-29 19:07:46.360 +05:00 [INF] Hosting environment: Production
+2025-03-29 19:07:46.360 +05:00 [INF] Content root path: M:\dev\csharp\k3s-terraform-provider\test
+2025-03-29 19:07:50.241 +05:00 [INF] Now listening on: https://localhost:5344
+2025-03-29 19:07:50.253 +05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-03-29 19:07:50.254 +05:00 [INF] Hosting environment: Production
+2025-03-29 19:07:50.254 +05:00 [INF] Content root path: M:\dev\csharp\k3s-terraform-provider\test
+2025-03-29 19:07:54.838 +05:00 [INF] Now listening on: https://localhost:5344
+2025-03-29 19:07:54.853 +05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-03-29 19:07:54.855 +05:00 [INF] Hosting environment: Production
+2025-03-29 19:07:54.855 +05:00 [INF] Content root path: M:\dev\csharp\k3s-terraform-provider\test
+2025-03-29 19:07:55.189 +05:00 [INF] Request starting HTTP/2 POST https://localhost/tfplugin5.Provider/PlanResourceChange application/grpc -
+2025-03-29 19:07:55.214 +05:00 [INF] Request finished HTTP/2 POST https://localhost/tfplugin5.Provider/PlanResourceChange application/grpc - - 200 - application/grpc 25.7094ms
+2025-03-29 19:07:55.217 +05:00 [INF] Request starting HTTP/2 POST https://localhost/tfplugin5.Provider/PlanResourceChange application/grpc -
+2025-03-29 19:07:55.232 +05:00 [ERR] Error when executing service method 'PlanResourceChange'.
+MessagePack.MessagePackSerializationException: Failed to deserialize K3SProvider.Resources.ServerResource value.
+ ---> MessagePack.MessagePackSerializationException: Unexpected msgpack code 212 (fixext 1) encountered.
+   at MessagePack.MessagePackReader.ThrowInvalidCode(Byte code)
+   at MessagePack.MessagePackReader.GetStringLengthInBytes()
+   at MessagePack.Formatters.NullableStringFormatter.Deserialize(MessagePackReader& reader, MessagePackSerializerOptions options)
+   at MessagePack.Formatters.K3SProvider_Resources_ServerResourceFormatter3.Deserialize(MessagePackReader& reader, MessagePackSerializerOptions options)
+   at MessagePack.MessagePackSerializer.Deserialize[T](MessagePackReader& reader, MessagePackSerializerOptions options)
+   --- End of inner exception stack trace ---
+   at MessagePack.MessagePackSerializer.Deserialize[T](MessagePackReader& reader, MessagePackSerializerOptions options)
+   at MessagePack.MessagePackSerializer.Deserialize[T](ReadOnlyMemory`1 buffer, MessagePackSerializerOptions options, CancellationToken cancellationToken)
+   at TerraformPluginDotNet.Serialization.DefaultDynamicValueSerializer.DeserializeMsgPack[T](ReadOnlyMemory`1 value) in M:\dev\csharp\k3s-terraform-provider\TerraformPluginDotNet\Serialization\DefaultDynamicValueSerializer.cs:line 16
+   at TerraformPluginDotNet.ResourceProvider.ResourceProviderHost`1.DeserializeDynamicValue(DynamicValue value) in M:\dev\csharp\k3s-terraform-provider\TerraformPluginDotNet\ResourceProvider\ResourceProviderHost.cs:line 111
+   at TerraformPluginDotNet.ResourceProvider.ResourceProviderHost`1.PlanResourceChange(Request request) in M:\dev\csharp\k3s-terraform-provider\TerraformPluginDotNet\ResourceProvider\ResourceProviderHost.cs:line 49
+   at Grpc.Shared.Server.UnaryServerMethodInvoker`3.AwaitInvoker(Task`1 invokerTask, GrpcActivatorHandle`1 serviceHandle)
+   at Grpc.Shared.Server.UnaryServerMethodInvoker`3.AwaitInvoker(Task`1 invokerTask, GrpcActivatorHandle`1 serviceHandle)
+   at Grpc.AspNetCore.Server.Internal.CallHandlers.UnaryServerCallHandler`3.HandleCallAsyncCore(HttpContext httpContext, HttpContextServerCallContext serverCallContext)
+   at Grpc.AspNetCore.Server.Internal.CallHandlers.ServerCallHandlerBase`3.<HandleCallAsync>g__AwaitHandleCall|8_0(HttpContextServerCallContext serverCallContext, Method`2 method, Task handleCall)
+2025-03-29 19:07:55.257 +05:00 [INF] Request finished HTTP/2 POST https://localhost/tfplugin5.Provider/PlanResourceChange application/grpc - - 200 0 application/grpc 39.7313ms
+2025-03-29 19:07:59.676 +05:00 [INF] Now listening on: https://localhost:5344
+2025-03-29 19:07:59.691 +05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-03-29 19:07:59.692 +05:00 [INF] Hosting environment: Production
+2025-03-29 19:07:59.692 +05:00 [INF] Content root path: M:\dev\csharp\k3s-terraform-provider\test
+2025-03-29 19:08:03.899 +05:00 [INF] Now listening on: https://localhost:5344
+2025-03-29 19:08:03.918 +05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-03-29 19:08:03.919 +05:00 [INF] Hosting environment: Production
+2025-03-29 19:08:03.919 +05:00 [INF] Content root path: M:\dev\csharp\k3s-terraform-provider\test
+2025-03-29 19:08:07.796 +05:00 [INF] Now listening on: https://localhost:5344
+2025-03-29 19:08:07.811 +05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-03-29 19:08:07.812 +05:00 [INF] Hosting environment: Production
+2025-03-29 19:08:07.812 +05:00 [INF] Content root path: M:\dev\csharp\k3s-terraform-provider\test
+2025-03-29 19:08:08.162 +05:00 [INF] Request starting HTTP/2 POST https://localhost/tfplugin5.Provider/PlanResourceChange application/grpc -
+2025-03-29 19:08:08.187 +05:00 [INF] Request finished HTTP/2 POST https://localhost/tfplugin5.Provider/PlanResourceChange application/grpc - - 200 - application/grpc 25.3132ms
+2025-03-29 19:08:08.190 +05:00 [INF] Request starting HTTP/2 POST https://localhost/tfplugin5.Provider/PlanResourceChange application/grpc -
+2025-03-29 19:08:08.205 +05:00 [ERR] Error when executing service method 'PlanResourceChange'.
+MessagePack.MessagePackSerializationException: Failed to deserialize K3SProvider.Resources.ServerResource value.
+ ---> MessagePack.MessagePackSerializationException: Unexpected msgpack code 212 (fixext 1) encountered.
+   at MessagePack.MessagePackReader.ThrowInvalidCode(Byte code)
+   at MessagePack.MessagePackReader.GetStringLengthInBytes()
+   at MessagePack.Formatters.NullableStringFormatter.Deserialize(MessagePackReader& reader, MessagePackSerializerOptions options)
+   at MessagePack.Formatters.K3SProvider_Resources_ServerResourceFormatter3.Deserialize(MessagePackReader& reader, MessagePackSerializerOptions options)
+   at MessagePack.MessagePackSerializer.Deserialize[T](MessagePackReader& reader, MessagePackSerializerOptions options)
+   --- End of inner exception stack trace ---
+   at MessagePack.MessagePackSerializer.Deserialize[T](MessagePackReader& reader, MessagePackSerializerOptions options)
+   at MessagePack.MessagePackSerializer.Deserialize[T](ReadOnlyMemory`1 buffer, MessagePackSerializerOptions options, CancellationToken cancellationToken)
+   at TerraformPluginDotNet.Serialization.DefaultDynamicValueSerializer.DeserializeMsgPack[T](ReadOnlyMemory`1 value) in M:\dev\csharp\k3s-terraform-provider\TerraformPluginDotNet\Serialization\DefaultDynamicValueSerializer.cs:line 16
+   at TerraformPluginDotNet.ResourceProvider.ResourceProviderHost`1.DeserializeDynamicValue(DynamicValue value) in M:\dev\csharp\k3s-terraform-provider\TerraformPluginDotNet\ResourceProvider\ResourceProviderHost.cs:line 111
+   at TerraformPluginDotNet.ResourceProvider.ResourceProviderHost`1.PlanResourceChange(Request request) in M:\dev\csharp\k3s-terraform-provider\TerraformPluginDotNet\ResourceProvider\ResourceProviderHost.cs:line 49
+   at Grpc.Shared.Server.UnaryServerMethodInvoker`3.AwaitInvoker(Task`1 invokerTask, GrpcActivatorHandle`1 serviceHandle)
+   at Grpc.Shared.Server.UnaryServerMethodInvoker`3.AwaitInvoker(Task`1 invokerTask, GrpcActivatorHandle`1 serviceHandle)
+   at Grpc.AspNetCore.Server.Internal.CallHandlers.UnaryServerCallHandler`3.HandleCallAsyncCore(HttpContext httpContext, HttpContextServerCallContext serverCallContext)
+   at Grpc.AspNetCore.Server.Internal.CallHandlers.ServerCallHandlerBase`3.<HandleCallAsync>g__AwaitHandleCall|8_0(HttpContextServerCallContext serverCallContext, Method`2 method, Task handleCall)
+2025-03-29 19:08:08.224 +05:00 [INF] Request finished HTTP/2 POST https://localhost/tfplugin5.Provider/PlanResourceChange application/grpc - - 200 0 application/grpc 34.0375ms
+2025-03-29 19:08:42.711 +05:00 [INF] Now listening on: https://localhost:5344
+2025-03-29 19:08:42.728 +05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-03-29 19:08:42.730 +05:00 [INF] Hosting environment: Production
+2025-03-29 19:08:42.730 +05:00 [INF] Content root path: M:\dev\csharp\k3s-terraform-provider\test
+2025-03-29 19:08:46.361 +05:00 [INF] Now listening on: https://localhost:5344
+2025-03-29 19:08:46.377 +05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-03-29 19:08:46.379 +05:00 [INF] Hosting environment: Production
+2025-03-29 19:08:46.379 +05:00 [INF] Content root path: M:\dev\csharp\k3s-terraform-provider\test
+2025-03-29 19:08:50.141 +05:00 [INF] Now listening on: https://localhost:5344
+2025-03-29 19:08:50.156 +05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-03-29 19:08:50.157 +05:00 [INF] Hosting environment: Production
+2025-03-29 19:08:50.157 +05:00 [INF] Content root path: M:\dev\csharp\k3s-terraform-provider\test
+2025-03-29 19:08:50.486 +05:00 [INF] Request starting HTTP/2 POST https://localhost/tfplugin5.Provider/PlanResourceChange application/grpc -
+2025-03-29 19:08:50.516 +05:00 [INF] Request finished HTTP/2 POST https://localhost/tfplugin5.Provider/PlanResourceChange application/grpc - - 200 - application/grpc 30.2299ms
+2025-03-29 19:08:50.519 +05:00 [INF] Request starting HTTP/2 POST https://localhost/tfplugin5.Provider/PlanResourceChange application/grpc -
+2025-03-29 19:08:50.533 +05:00 [ERR] Error when executing service method 'PlanResourceChange'.
+MessagePack.MessagePackSerializationException: Failed to deserialize K3SProvider.Resources.ServerResource value.
+ ---> MessagePack.MessagePackSerializationException: Unexpected msgpack code 212 (fixext 1) encountered.
+   at MessagePack.MessagePackReader.ThrowInvalidCode(Byte code)
+   at MessagePack.MessagePackReader.GetStringLengthInBytes()
+   at MessagePack.Formatters.NullableStringFormatter.Deserialize(MessagePackReader& reader, MessagePackSerializerOptions options)
+   at MessagePack.Formatters.K3SProvider_Resources_ServerResourceFormatter3.Deserialize(MessagePackReader& reader, MessagePackSerializerOptions options)
+   at MessagePack.MessagePackSerializer.Deserialize[T](MessagePackReader& reader, MessagePackSerializerOptions options)
+   --- End of inner exception stack trace ---
+   at MessagePack.MessagePackSerializer.Deserialize[T](MessagePackReader& reader, MessagePackSerializerOptions options)
+   at MessagePack.MessagePackSerializer.Deserialize[T](ReadOnlyMemory`1 buffer, MessagePackSerializerOptions options, CancellationToken cancellationToken)
+   at TerraformPluginDotNet.Serialization.DefaultDynamicValueSerializer.DeserializeMsgPack[T](ReadOnlyMemory`1 value) in M:\dev\csharp\k3s-terraform-provider\TerraformPluginDotNet\Serialization\DefaultDynamicValueSerializer.cs:line 16
+   at TerraformPluginDotNet.ResourceProvider.ResourceProviderHost`1.DeserializeDynamicValue(DynamicValue value) in M:\dev\csharp\k3s-terraform-provider\TerraformPluginDotNet\ResourceProvider\ResourceProviderHost.cs:line 111
+   at TerraformPluginDotNet.ResourceProvider.ResourceProviderHost`1.PlanResourceChange(Request request) in M:\dev\csharp\k3s-terraform-provider\TerraformPluginDotNet\ResourceProvider\ResourceProviderHost.cs:line 49
+   at Grpc.Shared.Server.UnaryServerMethodInvoker`3.AwaitInvoker(Task`1 invokerTask, GrpcActivatorHandle`1 serviceHandle)
+   at Grpc.Shared.Server.UnaryServerMethodInvoker`3.AwaitInvoker(Task`1 invokerTask, GrpcActivatorHandle`1 serviceHandle)
+   at Grpc.AspNetCore.Server.Internal.CallHandlers.UnaryServerCallHandler`3.HandleCallAsyncCore(HttpContext httpContext, HttpContextServerCallContext serverCallContext)
+   at Grpc.AspNetCore.Server.Internal.CallHandlers.ServerCallHandlerBase`3.<HandleCallAsync>g__AwaitHandleCall|8_0(HttpContextServerCallContext serverCallContext, Method`2 method, Task handleCall)
+2025-03-29 19:08:50.550 +05:00 [INF] Request finished HTTP/2 POST https://localhost/tfplugin5.Provider/PlanResourceChange application/grpc - - 200 0 application/grpc 30.5897ms
+2025-03-29 19:08:54.844 +05:00 [INF] Now listening on: https://localhost:5344
+2025-03-29 19:08:54.863 +05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-03-29 19:08:54.864 +05:00 [INF] Hosting environment: Production
+2025-03-29 19:08:54.864 +05:00 [INF] Content root path: M:\dev\csharp\k3s-terraform-provider\test
+2025-03-29 19:08:58.453 +05:00 [INF] Now listening on: https://localhost:5344
+2025-03-29 19:08:58.469 +05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-03-29 19:08:58.470 +05:00 [INF] Hosting environment: Production
+2025-03-29 19:08:58.470 +05:00 [INF] Content root path: M:\dev\csharp\k3s-terraform-provider\test
+2025-03-29 19:09:03.317 +05:00 [INF] Now listening on: https://localhost:5344
+2025-03-29 19:09:03.331 +05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-03-29 19:09:03.332 +05:00 [INF] Hosting environment: Production
+2025-03-29 19:09:03.332 +05:00 [INF] Content root path: M:\dev\csharp\k3s-terraform-provider\test
+2025-03-29 19:09:03.761 +05:00 [INF] Request starting HTTP/2 POST https://localhost/tfplugin5.Provider/PlanResourceChange application/grpc -
+2025-03-29 19:09:03.812 +05:00 [INF] Request finished HTTP/2 POST https://localhost/tfplugin5.Provider/PlanResourceChange application/grpc - - 200 - application/grpc 50.9193ms
+2025-03-29 19:09:03.816 +05:00 [INF] Request starting HTTP/2 POST https://localhost/tfplugin5.Provider/PlanResourceChange application/grpc -
+2025-03-29 19:09:03.844 +05:00 [ERR] Error when executing service method 'PlanResourceChange'.
+MessagePack.MessagePackSerializationException: Failed to deserialize K3SProvider.Resources.ServerResource value.
+ ---> MessagePack.MessagePackSerializationException: Unexpected msgpack code 212 (fixext 1) encountered.
+   at MessagePack.MessagePackReader.ThrowInvalidCode(Byte code)
+   at MessagePack.MessagePackReader.GetStringLengthInBytes()
+   at MessagePack.Formatters.NullableStringFormatter.Deserialize(MessagePackReader& reader, MessagePackSerializerOptions options)
+   at MessagePack.Formatters.K3SProvider_Resources_ServerResourceFormatter3.Deserialize(MessagePackReader& reader, MessagePackSerializerOptions options)
+   at MessagePack.MessagePackSerializer.Deserialize[T](MessagePackReader& reader, MessagePackSerializerOptions options)
+   --- End of inner exception stack trace ---
+   at MessagePack.MessagePackSerializer.Deserialize[T](MessagePackReader& reader, MessagePackSerializerOptions options)
+   at MessagePack.MessagePackSerializer.Deserialize[T](ReadOnlyMemory`1 buffer, MessagePackSerializerOptions options, CancellationToken cancellationToken)
+   at TerraformPluginDotNet.Serialization.DefaultDynamicValueSerializer.DeserializeMsgPack[T](ReadOnlyMemory`1 value) in M:\dev\csharp\k3s-terraform-provider\TerraformPluginDotNet\Serialization\DefaultDynamicValueSerializer.cs:line 16
+   at TerraformPluginDotNet.ResourceProvider.ResourceProviderHost`1.DeserializeDynamicValue(DynamicValue value) in M:\dev\csharp\k3s-terraform-provider\TerraformPluginDotNet\ResourceProvider\ResourceProviderHost.cs:line 111
+   at TerraformPluginDotNet.ResourceProvider.ResourceProviderHost`1.PlanResourceChange(Request request) in M:\dev\csharp\k3s-terraform-provider\TerraformPluginDotNet\ResourceProvider\ResourceProviderHost.cs:line 49
+   at Grpc.Shared.Server.UnaryServerMethodInvoker`3.AwaitInvoker(Task`1 invokerTask, GrpcActivatorHandle`1 serviceHandle)
+   at Grpc.Shared.Server.UnaryServerMethodInvoker`3.AwaitInvoker(Task`1 invokerTask, GrpcActivatorHandle`1 serviceHandle)
+   at Grpc.AspNetCore.Server.Internal.CallHandlers.UnaryServerCallHandler`3.HandleCallAsyncCore(HttpContext httpContext, HttpContextServerCallContext serverCallContext)
+   at Grpc.AspNetCore.Server.Internal.CallHandlers.ServerCallHandlerBase`3.<HandleCallAsync>g__AwaitHandleCall|8_0(HttpContextServerCallContext serverCallContext, Method`2 method, Task handleCall)
+2025-03-29 19:09:03.888 +05:00 [INF] Request finished HTTP/2 POST https://localhost/tfplugin5.Provider/PlanResourceChange application/grpc - - 200 0 application/grpc 71.5419ms
