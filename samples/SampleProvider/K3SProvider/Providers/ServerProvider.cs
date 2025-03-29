@@ -21,7 +21,7 @@ public class ServerProvider : IResourceProvider<ServerResource>
   public Task<ServerResource> PlanAsync(ServerResource? prior, ServerResource proposed)
   {
     if (prior is null)
-      throw new TerraformResourceProviderException("Prior resource is required.");
+      return Task.FromResult(proposed);
 
     if (proposed.Host != prior.Host)
     {

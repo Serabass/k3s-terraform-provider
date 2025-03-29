@@ -54,6 +54,8 @@ public class ServerResource
 
   [Key("url")]
   [Description("URL of the server.")]
+  [Computed]
+  [MessagePackFormatter(typeof(ComputedStringValueFormatter))]
   public string Url { get; set; } = null!;
 
   public K3SInstaller CreateInstaller() => new(Host, Port, Username, Password, SshKey);

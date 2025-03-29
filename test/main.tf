@@ -11,7 +11,7 @@ terraform {
 locals {
   master = {
     name = "master"
-    ip = "192.168.88.100"
+    ip = "192.168.88.15"
     username = "a"
     password = "a"
   }
