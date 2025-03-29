@@ -53,5 +53,5 @@ public class AgentResource
   [Description("Token of the server.")]
   public string Token { get; set; } = null!;
 
-  public K3SInstaller CreateInstaller() => new(Host, Port, Username, Password, SshKey);
+  public K3SInstaller CreateInstaller() => new(this);
 }

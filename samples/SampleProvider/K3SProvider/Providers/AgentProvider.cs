@@ -23,24 +23,14 @@ public class AgentProvider : IResourceProvider<AgentResource>
 
   public Task<AgentResource> CreateAsync(AgentResource planned)
   {
-    var installer = new K3SInstaller(
-      planned.Host,
-      planned.Port,
-      planned.Username,
-      planned.Password,
-      planned.SshKey);
+    var installer = new K3SInstaller(planned);
     installer.InstallK3SAgent(planned.Version, planned.Url, planned.Token);
     return Task.FromResult(planned);
   }
 
   public Task DeleteAsync(AgentResource resource)
   {
-    var installer = new K3SInstaller(
-      resource.Host,
-      resource.Port,
-      resource.Username,
-      resource.Password,
-      resource.SshKey);
+    var installer = resource.CreateInstaller();
     installer.UninstallK3SAgent();
 
     return Task.CompletedTask;

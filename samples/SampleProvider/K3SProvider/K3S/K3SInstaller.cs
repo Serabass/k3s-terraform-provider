@@ -2,6 +2,7 @@ namespace K3SProvider.K3S;
 
 using System;
 using System.IO;
+using K3SProvider.Resources;
 using Renci.SshNet;
 
 public class K3SInstaller
@@ -16,7 +17,6 @@ public class K3SInstaller
 
   public K3SInstaller(string host, int port, string username, string password, string sshKey)
   {
-    Console.WriteLine($"host: {host}, port: {port}, username: {username}, password: {password}, sshKey: {sshKey}");
     _host = host;
     _port = port;
     _username = username;
@@ -29,6 +29,16 @@ public class K3SInstaller
       _username,
       new PasswordAuthenticationMethod(_username, _password));
   }
+
+  public K3SInstaller(ServerResource server)
+    : this(server.Host, server.Port, server.Username, server.Password, server.SshKey)
+    {
+    }
+
+  public K3SInstaller(AgentResource agent)
+    : this(agent.Host, agent.Port, agent.Username, agent.Password, agent.SshKey)
+    {
+    }
 
   public string InstallK3SServer(string version)
   {

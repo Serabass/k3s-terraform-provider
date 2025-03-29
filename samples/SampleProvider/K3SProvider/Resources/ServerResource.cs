@@ -56,5 +56,5 @@ public class ServerResource
   [Description("URL of the server.")]
   public string Url { get; set; } = string.Empty;
 
-  public K3SInstaller CreateInstaller() => new(Host, Port, Username, Password, SshKey);
+  public K3SInstaller CreateInstaller() => new(this);
 }
