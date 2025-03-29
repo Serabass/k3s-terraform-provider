@@ -25,6 +25,7 @@ public class K3SServerProvider : IResourceProvider<ServerResource>
         if (proposed.Host != prior.Host)
         {
             prior.CreateInstaller().UninstallK3SServer();
+
             // proposed.CreateInstaller().InstallK3SServer(proposed.Version);
         }
 
@@ -35,6 +36,9 @@ public class K3SServerProvider : IResourceProvider<ServerResource>
     {
         var installer = planned.CreateInstaller();
         installer.InstallK3SServer(planned.Version);
+        planned.Token = installer.GetK3SServerToken();
+        planned.Url = $"https://{planned.Host}:6443";
+
         return Task.FromResult(planned);
     }
 

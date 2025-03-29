@@ -10,6 +10,7 @@
     <WarningsAsErrors>true</WarningsAsErrors>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <NuGetAudit>false</NuGetAudit>
   </PropertyGroup>
   <ItemGroup>
     <Protobuf Include="Protos\tfplugin5.2.proto" GrpcServices="Server" />
