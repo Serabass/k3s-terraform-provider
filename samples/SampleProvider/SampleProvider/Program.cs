@@ -15,8 +15,8 @@ class Program
         {
             services.AddSingleton<SampleConfigurator>();
             services.AddTerraformProviderConfigurator<Configuration, SampleConfigurator>();
-            services.AddSingleton<IResourceProvider<SampleFileResource>, SampleFileResourceProvider>();
-            registry.RegisterResource<SampleFileResource>("sampleprovider_file");
+            services.AddSingleton<IResourceProvider<K3SClusterResource>, K3SClusterProvider>();
+            registry.RegisterResource<K3SClusterResource>("k3s_cluster");
         });
     }
 }

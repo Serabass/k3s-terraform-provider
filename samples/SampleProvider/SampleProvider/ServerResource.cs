@@ -38,4 +38,8 @@ public class ServerResource
     [Key("ssh_key")]
     [Description("SSH key of the server.")]
     public string SshKey { get; set; } = null!;
+
+    [Key("token")]
+    [Description("Token of the server.")]
+    public string Token { get; set; } = null!;
 }
