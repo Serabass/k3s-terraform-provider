@@ -25,7 +25,7 @@ public class K3SServerProvider : IResourceProvider<ServerResource>
         if (proposed.Host != prior.Host)
         {
             prior.CreateInstaller().UninstallK3SServer();
-            proposed.CreateInstaller().InstallK3SServer(proposed.Version);
+            // proposed.CreateInstaller().InstallK3SServer(proposed.Version);
         }
 
         return Task.FromResult(proposed);
