@@ -1,6 +1,6 @@
 using System.ComponentModel;
+using K3SProvider.K3S;
 using MessagePack;
-using SampleProvider.K3S;
 using TerraformPluginDotNet.Resources;
 
 namespace K3SProvider;

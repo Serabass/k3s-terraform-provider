@@ -20,7 +20,6 @@ class Program
         services.AddTerraformProviderConfigurator<Configuration, SampleConfigurator>();
         services.AddSingleton<IResourceProvider<K3SClusterResource>, K3SClusterProvider>();
         registry.RegisterResource<K3SClusterResource>("k3s_cluster");
-      }
-    );
+      });
   }
 }

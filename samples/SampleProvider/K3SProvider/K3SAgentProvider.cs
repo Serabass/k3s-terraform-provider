@@ -27,8 +27,7 @@ public class K3SAgentProvider : IResourceProvider<AgentResource>
       planned.Port,
       planned.Username,
       planned.Password,
-      planned.SshKey
-    );
+      planned.SshKey);
     installer.InstallK3SAgent(planned.Version, planned.Url, planned.Token);
     return Task.FromResult(planned);
   }
@@ -40,8 +39,7 @@ public class K3SAgentProvider : IResourceProvider<AgentResource>
       resource.Port,
       resource.Username,
       resource.Password,
-      resource.SshKey
-    );
+      resource.SshKey);
     installer.UninstallK3SAgent();
     return Task.CompletedTask;
   }
