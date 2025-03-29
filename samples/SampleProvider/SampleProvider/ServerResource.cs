@@ -1,5 +1,6 @@
 using System.ComponentModel;
 using MessagePack;
+using SampleProvider.K3S;
 using TerraformPluginDotNet.Resources;
 
 namespace SampleProvider;
@@ -47,4 +48,6 @@ public class ServerResource
     [Key("version")]
     [Description("Version of the server.")]
     public string Version { get; set; } = null!;
+
+    public K3SInstaller CreateInstaller() => new(Host, Port, Username, Password, SshKey);
 }

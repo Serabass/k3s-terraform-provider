@@ -29,7 +29,7 @@ public class K3SInstaller
             new PrivateKeyAuthenticationMethod(_sshKey));
     }
 
-    public string InstallK3SServerAsync(string version)
+    public string InstallK3SServer(string version)
     {
         using var sshClient = new SshClient(_connectionInfo);
         using var sftpClient = new SftpClient(_connectionInfo);
@@ -38,12 +38,10 @@ public class K3SInstaller
 
         var command = $"curl -sfL https://get.k3s.io | INSTALL_K3S_VERSION={version} sh -";
         var result = sshClient.RunCommand(command);
-        var stream = sftpClient.OpenRead("/var/lib/rancher/k3s/server/token");
-        var token = new StreamReader(stream).ReadToEnd();
-        return token;
+        return GetK3SServerToken();
     }
 
-    public string InstallK3SAgentAsync(string version, string url, string token)
+    public string InstallK3SAgent(string version, string url, string token)
     {
         using var sshClient = new SshClient(_connectionInfo);
         using var sftpClient = new SftpClient(_connectionInfo);
@@ -56,7 +54,7 @@ public class K3SInstaller
         return result.Result;
     }
 
-    public void UninstallK3SServerAsync()
+    public void UninstallK3SServer()
     {
         using var sshClient = new SshClient(_connectionInfo);
         sshClient.Connect();
@@ -65,12 +63,22 @@ public class K3SInstaller
         sshClient.RunCommand(command);
     }
 
-    public void UninstallK3SAgentAsync()
+    public void UninstallK3SAgent()
     {
         using var sshClient = new SshClient(_connectionInfo);
         sshClient.Connect();
 
         var command = "sudo /usr/local/bin/k3s-agent-uninstall.sh";
         sshClient.RunCommand(command);
+    }
+
+    public string GetK3SServerToken()
+    {
+        using var sshClient = new SshClient(_connectionInfo);
+        sshClient.Connect();
+
+        var command = "sudo cat /var/lib/rancher/k3s/server/token";
+        var result = sshClient.RunCommand(command);
+        return result.Result;
     }
 }

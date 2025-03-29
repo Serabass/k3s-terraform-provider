@@ -21,7 +21,7 @@ public class K3SAgentProvider : IResourceProvider<AgentResource>
         return Task.FromResult(proposed);
     }
 
-    public async Task<AgentResource> CreateAsync(AgentResource planned)
+    public Task<AgentResource> CreateAsync(AgentResource planned)
     {
         var installer = new K3SInstaller(
             planned.Host,
@@ -31,12 +31,19 @@ public class K3SAgentProvider : IResourceProvider<AgentResource>
             planned.SshKey
         );
         installer.InstallK3SAgentAsync(planned.Version, planned.Url, planned.Token);
-        return planned;
+        return Task.FromResult(planned);
     }
 
     public Task DeleteAsync(AgentResource resource)
     {
-        File.Delete(resource.Path);
+        var installer = new K3SInstaller(
+            resource.Host,
+            resource.Port,
+            resource.Username,
+            resource.Password,
+            resource.SshKey
+        );
+        installer.UninstallK3SAgentAsync();
         return Task.CompletedTask;
     }
 
@@ -47,22 +54,23 @@ public class K3SAgentProvider : IResourceProvider<AgentResource>
         return resource;
     }
 
-    public async Task<AgentResource> UpdateAsync(AgentResource? prior, AgentResource planned)
+    public Task<AgentResource> UpdateAsync(AgentResource? prior, AgentResource planned)
     {
-        await File.WriteAllTextAsync(planned.Path, BuildContent(planned.Content));
-        return planned;
+        if (prior is null)
+        {
+            throw new TerraformResourceProviderException("Prior resource is required.");
+        }
+
+        if (prior.Version != planned.Version)
+        {
+            var installer = planned.CreateInstaller();
+            installer.InstallK3SAgent(planned.Version, planned.Url, planned.Token);
+        }
+        return Task.FromResult(planned);
     }
 
     public async Task<IList<AgentResource>> ImportAsync(string id)
     {
-        // Id is not AgentResource.Id, it's the "import ID" supplied by Terraform
-        // and in this provider, is defined to be the file name.
-
-        if (!File.Exists(id))
-        {
-            throw new TerraformResourceProviderException($"File '{id}' does not exist.");
-        }
-
         var content = await File.ReadAllTextAsync(id);
 
         return new[]

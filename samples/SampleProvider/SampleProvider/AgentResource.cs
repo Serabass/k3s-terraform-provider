@@ -39,4 +39,16 @@ public class AgentResource
     [Key("ssh_key")]
     [Description("SSH key of the server.")]
     public string SshKey { get; set; } = null!;
+
+    [Key("version")]
+    [Description("Version of the server.")]
+    public string Version { get; set; } = null!;
+
+    [Key("url")]
+    [Description("URL of the server.")]
+    public string Url { get; set; } = null!;
+
+    [Key("token")]
+    [Description("Token of the server.")]
+    public string Token { get; set; } = null!;
 }
