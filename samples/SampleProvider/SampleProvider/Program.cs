@@ -11,7 +11,7 @@ class Program
     {
         // Use the default plugin host that takes care of certificates and hosting the Grpc services.
 
-        return TerraformPluginHost.RunAsync(args, "example.com/example/sampleprovider", (services, registry) =>
+        return TerraformPluginHost.RunAsync(args, "example.com/serabass/k3s", (services, registry) =>
         {
             services.AddSingleton<SampleConfigurator>();
             services.AddTerraformProviderConfigurator<Configuration, SampleConfigurator>();
