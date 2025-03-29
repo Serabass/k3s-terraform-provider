@@ -28,9 +28,8 @@ public class K3SAgentProvider : IResourceProvider<AgentResource>
             planned.Port,
             planned.Username,
             planned.Password,
-            planned.SshKey
-        );
-        installer.InstallK3SAgentAsync(planned.Version, planned.Url, planned.Token);
+            planned.SshKey);
+        installer.InstallK3SAgent(planned.Version, planned.Url, planned.Token);
         return Task.FromResult(planned);
     }
 
@@ -41,16 +40,15 @@ public class K3SAgentProvider : IResourceProvider<AgentResource>
             resource.Port,
             resource.Username,
             resource.Password,
-            resource.SshKey
-        );
-        installer.UninstallK3SAgentAsync();
+            resource.SshKey);
+        installer.UninstallK3SAgent();
         return Task.CompletedTask;
     }
 
     public Task<AgentResource> ReadAsync(AgentResource resource)
     {
         var installer = resource.CreateInstaller();
-        resource.Token = installer.GetK3SAgentToken();
+        resource.Token = installer.GetK3SServerToken();
         return Task.FromResult(resource);
     }
 
@@ -69,18 +67,8 @@ public class K3SAgentProvider : IResourceProvider<AgentResource>
         return Task.FromResult(planned);
     }
 
-    public async Task<IList<AgentResource>> ImportAsync(string id)
+    public Task<IList<AgentResource>> ImportAsync(string id)
     {
-        var content = await File.ReadAllTextAsync(id);
-
-        return new[]
-        {
-            new AgentResource
-            {
-                Id = Guid.NewGuid().ToString(),
-                Path = id,
-                Content = content,
-            },
-        };
+        throw new NotImplementedException();
     }
 }

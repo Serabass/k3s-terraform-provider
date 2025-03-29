@@ -21,9 +21,9 @@ public class K3SClusterProvider : IResourceProvider<K3SClusterResource>
         return Task.FromResult(proposed);
     }
 
-    public async Task<K3SClusterResource> CreateAsync(K3SClusterResource planned)
+    public Task<K3SClusterResource> CreateAsync(K3SClusterResource planned)
     {
-        return planned;
+        return Task.FromResult(planned);
     }
 
     public Task DeleteAsync(K3SClusterResource resource)
@@ -31,22 +31,18 @@ public class K3SClusterProvider : IResourceProvider<K3SClusterResource>
         return Task.CompletedTask;
     }
 
-    public async Task<K3SClusterResource> ReadAsync(K3SClusterResource resource)
+    public Task<K3SClusterResource> ReadAsync(K3SClusterResource resource)
     {
-        return resource;
+        return Task.FromResult(resource);
     }
 
-    public async Task<K3SClusterResource> UpdateAsync(K3SClusterResource? prior, K3SClusterResource planned)
+    public Task<K3SClusterResource> UpdateAsync(K3SClusterResource? prior, K3SClusterResource planned)
     {
-        return planned;
+        return Task.FromResult(planned);
     }
 
     public Task<IList<K3SClusterResource>> ImportAsync(string name)
     {
-        // Id is not K3SClusterResource.Id, it's the "import ID" supplied by Terraform
-        // and in this provider, is defined to be the file name.
-
-        return Task.FromResult<IList<K3SClusterResource>>(
-            new[] { new K3SClusterResource { Name = name } });
+        throw new NotImplementedException();
     }
 }

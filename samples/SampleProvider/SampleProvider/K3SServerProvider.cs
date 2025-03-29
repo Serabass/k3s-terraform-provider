@@ -31,11 +31,11 @@ public class K3SServerProvider : IResourceProvider<ServerResource>
         return Task.FromResult(proposed);
     }
 
-    public async Task<ServerResource> CreateAsync(ServerResource planned)
+    public Task<ServerResource> CreateAsync(ServerResource planned)
     {
         var installer = planned.CreateInstaller();
         installer.InstallK3SServer(planned.Version);
-        return planned;
+        return Task.FromResult(planned);
     }
 
     public Task DeleteAsync(ServerResource resource)
@@ -61,11 +61,6 @@ public class K3SServerProvider : IResourceProvider<ServerResource>
 
     public Task<IList<ServerResource>> ImportAsync(string id)
     {
-        return new[]
-        {
-            new ServerResource
-            {
-            },
-        };
+        throw new NotImplementedException();
     }
 }
