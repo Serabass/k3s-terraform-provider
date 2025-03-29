@@ -2,6 +2,7 @@ using System.ComponentModel;
 using K3SProvider.K3S;
 using MessagePack;
 using TerraformPluginDotNet.Resources;
+using TerraformPluginDotNet.Serialization;
 
 namespace K3SProvider;
 
@@ -43,6 +44,8 @@ public class ServerResource
 
   [Key("token")]
   [Description("Token of the server.")]
+  [Computed]
+  [MessagePackFormatter(typeof(ComputedStringValueFormatter))]
   public string Token { get; set; } = null!;
 
   [Key("version")]
