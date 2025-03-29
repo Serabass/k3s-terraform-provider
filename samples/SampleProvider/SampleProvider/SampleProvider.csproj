@@ -10,6 +10,7 @@
   </PropertyGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\TerraformPluginDotNet\TerraformPluginDotNet.csproj" />
+    <PackageReference Include="Renci.SshNet.Async" Version="1.4.0" />
   </ItemGroup>
   <Target Name="PublishTerraformProvider" AfterTargets="Publish">
     <PropertyGroup>
