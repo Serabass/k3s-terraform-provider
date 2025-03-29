@@ -8,6 +8,10 @@ namespace K3SProvider;
 [MessagePackObject]
 public class ClusterResource
 {
+  [Key("id")]
+  [Description("ID of the cluster.")]
+  public string Id { get; set; } = null!;
+
   [Key("name")]
   [Description("Name of the cluster.")]
   [Required]

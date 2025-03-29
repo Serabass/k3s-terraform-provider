@@ -5,7 +5,7 @@ using TerraformPluginDotNet.ResourceProvider;
 
 namespace K3SProvider;
 
-public class K3SClusterProvider : IResourceProvider<K3SClusterResource>
+public class K3SClusterProvider : IResourceProvider<ClusterResource>
 {
   private readonly SampleConfigurator _configurator;
 
@@ -14,32 +14,33 @@ public class K3SClusterProvider : IResourceProvider<K3SClusterResource>
     _configurator = configurator;
   }
 
-  public Task<K3SClusterResource> PlanAsync(K3SClusterResource? prior, K3SClusterResource proposed)
+  public Task<ClusterResource> PlanAsync(ClusterResource? prior, ClusterResource proposed)
   {
     return Task.FromResult(proposed);
   }
 
-  public Task<K3SClusterResource> CreateAsync(K3SClusterResource planned)
+  public Task<ClusterResource> CreateAsync(ClusterResource planned)
   {
+    planned.Id = Guid.NewGuid().ToString();
     return Task.FromResult(planned);
   }
 
-  public Task DeleteAsync(K3SClusterResource resource)
+  public Task DeleteAsync(ClusterResource resource)
   {
     return Task.CompletedTask;
   }
 
-  public Task<K3SClusterResource> ReadAsync(K3SClusterResource resource)
+  public Task<ClusterResource> ReadAsync(ClusterResource resource)
   {
     return Task.FromResult(resource);
   }
 
-  public Task<K3SClusterResource> UpdateAsync(K3SClusterResource? prior, K3SClusterResource planned)
+  public Task<ClusterResource> UpdateAsync(ClusterResource? prior, ClusterResource planned)
   {
     return Task.FromResult(planned);
   }
 
-  public Task<IList<K3SClusterResource>> ImportAsync(string name)
+  public Task<IList<ClusterResource>> ImportAsync(string name)
   {
     throw new NotImplementedException();
   }

@@ -18,8 +18,10 @@ class Program
       {
         services.AddSingleton<SampleConfigurator>();
         services.AddTerraformProviderConfigurator<Configuration, SampleConfigurator>();
-        services.AddSingleton<IResourceProvider<K3SClusterResource>, K3SClusterProvider>();
-        registry.RegisterResource<K3SClusterResource>("k3s_cluster");
+        services.AddSingleton<IResourceProvider<ClusterResource>, K3SClusterProvider>();
+        registry.RegisterResource<ClusterResource>("k3s_cluster");
+        registry.RegisterResource<ServerResource>("k3s_server");
+        registry.RegisterResource<AgentResource>("k3s_agent");
       });
   }
 }
