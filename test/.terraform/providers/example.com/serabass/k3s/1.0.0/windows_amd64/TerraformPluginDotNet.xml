@@ -1,0 +1,615 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>TerraformPluginDotNet</name>
+    </assembly>
+    <members>
+        <member name="T:TerraformPluginDotNet.ResourceProvider.DefaultResourceUpgrader`1">
+            <summary>
+            Default implementation of a resource upgrader that does nothing, and assumes
+            previous versions can be deserialized from JSON into the latest schema version.
+            </summary>
+        </member>
+        <member name="T:TerraformPluginDotNet.ResourceProvider.IResourceUpgrader`1">
+            <summary>
+            Upgrades resource state from previous schema versions to the latest version.
+            </summary>
+            <typeparam name="T">The type representing the latest schema of the resource.</typeparam>
+        </member>
+        <member name="M:TerraformPluginDotNet.ResourceProvider.IResourceUpgrader`1.UpgradeResourceStateAsync(System.Int64,System.ReadOnlyMemory{System.Byte})">
+            <summary>
+            Upgrades a resources state from an older schema to the latest schema.
+            </summary>
+            <param name="schemaVersion">Schema version to upgrade from.</param>
+            <param name="json">Raw data to be upgraded.</param>
+            <returns>The resource state represented in the latest schema.</returns>
+        </member>
+        <member name="T:TerraformPluginDotNet.Resources.ComputedAttribute">
+            <summary>
+            Indicates that a value is "known after apply".
+            </summary>
+        </member>
+        <member name="T:TerraformPluginDotNet.Resources.RequiredAttribute">
+            <summary>
+            Indicates that a value is required.
+            </summary>
+        </member>
+        <member name="T:TerraformPluginDotNet.Resources.SchemaVersionAttribute">
+            <summary>
+            Indicates the version of a Terraform schema to allow version upgrades.
+            </summary>
+        </member>
+        <member name="M:TerraformPluginDotNet.Schemas.ISchemaBuilder.BuildSchema(System.Type)">
+            <summary>
+            Builds a Terraform schema for the specified CLR type.
+            </summary>
+            <param name="type">The type to build a schema for.</param>
+        </member>
+        <member name="M:TerraformPluginDotNet.Schemas.Types.TerraformType.ToJson">
+            <summary>
+            Returns the Terraform JSON representation of this type.
+            </summary>
+        </member>
+        <member name="T:TerraformPluginDotNet.ServiceCollectionExtensions">
+            <summary>
+            Use the extensions in this class for more granular configuration of the Terraform plugin.
+            For simpler setup, use <see cref="T:TerraformPluginDotNet.TerraformPluginHost"/>.
+            </summary>
+        </member>
+        <member name="M:TerraformPluginDotNet.ServiceCollectionExtensions.AddTerraformProviderConfigurator``2(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            Adds a configurator that will be called when configuring this terraform plugin.
+            </summary>
+        </member>
+        <member name="T:TerraformPluginDotNet.TerraformPluginHost">
+            <summary>
+            Use this class to create a default host for a Terraform plugin.
+            </summary>
+        </member>
+        <member name="P:TerraformPluginDotNet.TerraformPluginHostOptions.FullProviderName">
+            <summary>
+            The full provider name. For example, `example.com/example/dotnetsample`.
+            </summary>
+        </member>
+        <member name="P:TerraformPluginDotNet.TerraformPluginHostOptions.DebugMode">
+            <summary>
+            Configures debug mode which listens on H2C instead of TLS.
+            </summary>
+        </member>
+        <member name="T:Tfplugin5.Tfplugin52Reflection">
+            <summary>Holder for reflection information generated from Protos/tfplugin5.2.proto</summary>
+        </member>
+        <member name="P:Tfplugin5.Tfplugin52Reflection.Descriptor">
+            <summary>File descriptor for Protos/tfplugin5.2.proto</summary>
+        </member>
+        <member name="T:Tfplugin5.DynamicValue">
+            <summary>
+            DynamicValue is an opaque encoding of terraform data, with the field name
+            indicating the encoding scheme used.
+            </summary>
+        </member>
+        <member name="F:Tfplugin5.DynamicValue.MsgpackFieldNumber">
+            <summary>Field number for the "msgpack" field.</summary>
+        </member>
+        <member name="F:Tfplugin5.DynamicValue.JsonFieldNumber">
+            <summary>Field number for the "json" field.</summary>
+        </member>
+        <member name="F:Tfplugin5.Diagnostic.SeverityFieldNumber">
+            <summary>Field number for the "severity" field.</summary>
+        </member>
+        <member name="F:Tfplugin5.Diagnostic.SummaryFieldNumber">
+            <summary>Field number for the "summary" field.</summary>
+        </member>
+        <member name="F:Tfplugin5.Diagnostic.DetailFieldNumber">
+            <summary>Field number for the "detail" field.</summary>
+        </member>
+        <member name="F:Tfplugin5.Diagnostic.AttributeFieldNumber">
+            <summary>Field number for the "attribute" field.</summary>
+        </member>
+        <member name="T:Tfplugin5.Diagnostic.Types">
+            <summary>Container for nested types declared in the Diagnostic message type.</summary>
+        </member>
+        <member name="F:Tfplugin5.AttributePath.StepsFieldNumber">
+            <summary>Field number for the "steps" field.</summary>
+        </member>
+        <member name="T:Tfplugin5.AttributePath.Types">
+            <summary>Container for nested types declared in the AttributePath message type.</summary>
+        </member>
+        <member name="F:Tfplugin5.AttributePath.Types.Step.AttributeNameFieldNumber">
+            <summary>Field number for the "attribute_name" field.</summary>
+        </member>
+        <member name="P:Tfplugin5.AttributePath.Types.Step.AttributeName">
+            <summary>
+            Set "attribute_name" to represent looking up an attribute
+            in the current object value.
+            </summary>
+        </member>
+        <member name="P:Tfplugin5.AttributePath.Types.Step.HasAttributeName">
+            <summary>Gets whether the "attribute_name" field is set</summary>
+        </member>
+        <member name="M:Tfplugin5.AttributePath.Types.Step.ClearAttributeName">
+            <summary> Clears the value of the oneof if it's currently set to "attribute_name" </summary>
+        </member>
+        <member name="F:Tfplugin5.AttributePath.Types.Step.ElementKeyStringFieldNumber">
+            <summary>Field number for the "element_key_string" field.</summary>
+        </member>
+        <member name="P:Tfplugin5.AttributePath.Types.Step.ElementKeyString">
+            <summary>
+            Set "element_key_*" to represent looking up an element in
+            an indexable collection type.
+            </summary>
+        </member>
+        <member name="P:Tfplugin5.AttributePath.Types.Step.HasElementKeyString">
+            <summary>Gets whether the "element_key_string" field is set</summary>
+        </member>
+        <member name="M:Tfplugin5.AttributePath.Types.Step.ClearElementKeyString">
+            <summary> Clears the value of the oneof if it's currently set to "element_key_string" </summary>
+        </member>
+        <member name="F:Tfplugin5.AttributePath.Types.Step.ElementKeyIntFieldNumber">
+            <summary>Field number for the "element_key_int" field.</summary>
+        </member>
+        <member name="P:Tfplugin5.AttributePath.Types.Step.HasElementKeyInt">
+            <summary>Gets whether the "element_key_int" field is set</summary>
+        </member>
+        <member name="M:Tfplugin5.AttributePath.Types.Step.ClearElementKeyInt">
+            <summary> Clears the value of the oneof if it's currently set to "element_key_int" </summary>
+        </member>
+        <member name="T:Tfplugin5.AttributePath.Types.Step.SelectorOneofCase">
+            <summary>Enum of possible cases for the "selector" oneof.</summary>
+        </member>
+        <member name="T:Tfplugin5.Stop.Types">
+            <summary>Container for nested types declared in the Stop message type.</summary>
+        </member>
+        <member name="F:Tfplugin5.Stop.Types.Response.ErrorFieldNumber">
+            <summary>Field number for the "Error" field.</summary>
+        </member>
+        <member name="T:Tfplugin5.RawState">
+            <summary>
+            RawState holds the stored state for a resource to be upgraded by the
+            provider. It can be in one of two formats, the current json encoded format
+            in bytes, or the legacy flatmap format as a map of strings.
+            </summary>
+        </member>
+        <member name="F:Tfplugin5.RawState.JsonFieldNumber">
+            <summary>Field number for the "json" field.</summary>
+        </member>
+        <member name="F:Tfplugin5.RawState.FlatmapFieldNumber">
+            <summary>Field number for the "flatmap" field.</summary>
+        </member>
+        <member name="T:Tfplugin5.Schema">
+            <summary>
+            Schema is the configuration schema for a Resource, Provider, or Provisioner.
+            </summary>
+        </member>
+        <member name="F:Tfplugin5.Schema.VersionFieldNumber">
+            <summary>Field number for the "version" field.</summary>
+        </member>
+        <member name="P:Tfplugin5.Schema.Version">
+            <summary>
+            The version of the schema.
+            Schemas are versioned, so that providers can upgrade a saved resource
+            state when the schema is changed. 
+            </summary>
+        </member>
+        <member name="F:Tfplugin5.Schema.BlockFieldNumber">
+            <summary>Field number for the "block" field.</summary>
+        </member>
+        <member name="P:Tfplugin5.Schema.Block">
+            <summary>
+            Block is the top level configuration block for this schema.
+            </summary>
+        </member>
+        <member name="T:Tfplugin5.Schema.Types">
+            <summary>Container for nested types declared in the Schema message type.</summary>
+        </member>
+        <member name="F:Tfplugin5.Schema.Types.Block.VersionFieldNumber">
+            <summary>Field number for the "version" field.</summary>
+        </member>
+        <member name="F:Tfplugin5.Schema.Types.Block.AttributesFieldNumber">
+            <summary>Field number for the "attributes" field.</summary>
+        </member>
+        <member name="F:Tfplugin5.Schema.Types.Block.BlockTypesFieldNumber">
+            <summary>Field number for the "block_types" field.</summary>
+        </member>
+        <member name="F:Tfplugin5.Schema.Types.Block.DescriptionFieldNumber">
+            <summary>Field number for the "description" field.</summary>
+        </member>
+        <member name="F:Tfplugin5.Schema.Types.Block.DescriptionKindFieldNumber">
+            <summary>Field number for the "description_kind" field.</summary>
+        </member>
+        <member name="F:Tfplugin5.Schema.Types.Block.DeprecatedFieldNumber">
+            <summary>Field number for the "deprecated" field.</summary>
+        </member>
+        <member name="F:Tfplugin5.Schema.Types.Attribute.NameFieldNumber">
+            <summary>Field number for the "name" field.</summary>
+        </member>
+        <member name="F:Tfplugin5.Schema.Types.Attribute.TypeFieldNumber">
+            <summary>Field number for the "type" field.</summary>
+        </member>
+        <member name="F:Tfplugin5.Schema.Types.Attribute.DescriptionFieldNumber">
+            <summary>Field number for the "description" field.</summary>
+        </member>
+        <member name="F:Tfplugin5.Schema.Types.Attribute.RequiredFieldNumber">
+            <summary>Field number for the "required" field.</summary>
+        </member>
+        <member name="F:Tfplugin5.Schema.Types.Attribute.OptionalFieldNumber">
+            <summary>Field number for the "optional" field.</summary>
+        </member>
+        <member name="F:Tfplugin5.Schema.Types.Attribute.ComputedFieldNumber">
+            <summary>Field number for the "computed" field.</summary>
+        </member>
+        <member name="F:Tfplugin5.Schema.Types.Attribute.SensitiveFieldNumber">
+            <summary>Field number for the "sensitive" field.</summary>
+        </member>
+        <member name="F:Tfplugin5.Schema.Types.Attribute.DescriptionKindFieldNumber">
+            <summary>Field number for the "description_kind" field.</summary>
+        </member>
+        <member name="F:Tfplugin5.Schema.Types.Attribute.DeprecatedFieldNumber">
+            <summary>Field number for the "deprecated" field.</summary>
+        </member>
+        <member name="F:Tfplugin5.Schema.Types.NestedBlock.TypeNameFieldNumber">
+            <summary>Field number for the "type_name" field.</summary>
+        </member>
+        <member name="F:Tfplugin5.Schema.Types.NestedBlock.BlockFieldNumber">
+            <summary>Field number for the "block" field.</summary>
+        </member>
+        <member name="F:Tfplugin5.Schema.Types.NestedBlock.NestingFieldNumber">
+            <summary>Field number for the "nesting" field.</summary>
+        </member>
+        <member name="F:Tfplugin5.Schema.Types.NestedBlock.MinItemsFieldNumber">
+            <summary>Field number for the "min_items" field.</summary>
+        </member>
+        <member name="F:Tfplugin5.Schema.Types.NestedBlock.MaxItemsFieldNumber">
+            <summary>Field number for the "max_items" field.</summary>
+        </member>
+        <member name="T:Tfplugin5.Schema.Types.NestedBlock.Types">
+            <summary>Container for nested types declared in the NestedBlock message type.</summary>
+        </member>
+        <member name="T:Tfplugin5.GetProviderSchema.Types">
+            <summary>Container for nested types declared in the GetProviderSchema message type.</summary>
+        </member>
+        <member name="F:Tfplugin5.GetProviderSchema.Types.Response.ProviderFieldNumber">
+            <summary>Field number for the "provider" field.</summary>
+        </member>
+        <member name="F:Tfplugin5.GetProviderSchema.Types.Response.ResourceSchemasFieldNumber">
+            <summary>Field number for the "resource_schemas" field.</summary>
+        </member>
+        <member name="F:Tfplugin5.GetProviderSchema.Types.Response.DataSourceSchemasFieldNumber">
+            <summary>Field number for the "data_source_schemas" field.</summary>
+        </member>
+        <member name="F:Tfplugin5.GetProviderSchema.Types.Response.DiagnosticsFieldNumber">
+            <summary>Field number for the "diagnostics" field.</summary>
+        </member>
+        <member name="F:Tfplugin5.GetProviderSchema.Types.Response.ProviderMetaFieldNumber">
+            <summary>Field number for the "provider_meta" field.</summary>
+        </member>
+        <member name="T:Tfplugin5.PrepareProviderConfig.Types">
+            <summary>Container for nested types declared in the PrepareProviderConfig message type.</summary>
+        </member>
+        <member name="F:Tfplugin5.PrepareProviderConfig.Types.Request.ConfigFieldNumber">
+            <summary>Field number for the "config" field.</summary>
+        </member>
+        <member name="F:Tfplugin5.PrepareProviderConfig.Types.Response.PreparedConfigFieldNumber">
+            <summary>Field number for the "prepared_config" field.</summary>
+        </member>
+        <member name="F:Tfplugin5.PrepareProviderConfig.Types.Response.DiagnosticsFieldNumber">
+            <summary>Field number for the "diagnostics" field.</summary>
+        </member>
+        <member name="T:Tfplugin5.UpgradeResourceState.Types">
+            <summary>Container for nested types declared in the UpgradeResourceState message type.</summary>
+        </member>
+        <member name="F:Tfplugin5.UpgradeResourceState.Types.Request.TypeNameFieldNumber">
+            <summary>Field number for the "type_name" field.</summary>
+        </member>
+        <member name="F:Tfplugin5.UpgradeResourceState.Types.Request.VersionFieldNumber">
+            <summary>Field number for the "version" field.</summary>
+        </member>
+        <member name="P:Tfplugin5.UpgradeResourceState.Types.Request.Version">
+            <summary>
+            version is the schema_version number recorded in the state file
+            </summary>
+        </member>
+        <member name="F:Tfplugin5.UpgradeResourceState.Types.Request.RawStateFieldNumber">
+            <summary>Field number for the "raw_state" field.</summary>
+        </member>
+        <member name="P:Tfplugin5.UpgradeResourceState.Types.Request.RawState">
+            <summary>
+            raw_state is the raw states as stored for the resource.  Core does
+            not have access to the schema of prior_version, so it's the
+            provider's responsibility to interpret this value using the
+            appropriate older schema. The raw_state will be the json encoded
+            state, or a legacy flat-mapped format.
+            </summary>
+        </member>
+        <member name="F:Tfplugin5.UpgradeResourceState.Types.Response.UpgradedStateFieldNumber">
+            <summary>Field number for the "upgraded_state" field.</summary>
+        </member>
+        <member name="P:Tfplugin5.UpgradeResourceState.Types.Response.UpgradedState">
+            <summary>
+            new_state is a msgpack-encoded data structure that, when interpreted with
+            the _current_ schema for this resource type, is functionally equivalent to
+            that which was given in prior_state_raw.
+            </summary>
+        </member>
+        <member name="F:Tfplugin5.UpgradeResourceState.Types.Response.DiagnosticsFieldNumber">
+            <summary>Field number for the "diagnostics" field.</summary>
+        </member>
+        <member name="P:Tfplugin5.UpgradeResourceState.Types.Response.Diagnostics">
+            <summary>
+            diagnostics describes any errors encountered during migration that could not
+            be safely resolved, and warnings about any possibly-risky assumptions made
+            in the upgrade process.
+            </summary>
+        </member>
+        <member name="T:Tfplugin5.ValidateResourceTypeConfig.Types">
+            <summary>Container for nested types declared in the ValidateResourceTypeConfig message type.</summary>
+        </member>
+        <member name="F:Tfplugin5.ValidateResourceTypeConfig.Types.Request.TypeNameFieldNumber">
+            <summary>Field number for the "type_name" field.</summary>
+        </member>
+        <member name="F:Tfplugin5.ValidateResourceTypeConfig.Types.Request.ConfigFieldNumber">
+            <summary>Field number for the "config" field.</summary>
+        </member>
+        <member name="F:Tfplugin5.ValidateResourceTypeConfig.Types.Response.DiagnosticsFieldNumber">
+            <summary>Field number for the "diagnostics" field.</summary>
+        </member>
+        <member name="T:Tfplugin5.ValidateDataSourceConfig.Types">
+            <summary>Container for nested types declared in the ValidateDataSourceConfig message type.</summary>
+        </member>
+        <member name="F:Tfplugin5.ValidateDataSourceConfig.Types.Request.TypeNameFieldNumber">
+            <summary>Field number for the "type_name" field.</summary>
+        </member>
+        <member name="F:Tfplugin5.ValidateDataSourceConfig.Types.Request.ConfigFieldNumber">
+            <summary>Field number for the "config" field.</summary>
+        </member>
+        <member name="F:Tfplugin5.ValidateDataSourceConfig.Types.Response.DiagnosticsFieldNumber">
+            <summary>Field number for the "diagnostics" field.</summary>
+        </member>
+        <member name="T:Tfplugin5.Configure.Types">
+            <summary>Container for nested types declared in the Configure message type.</summary>
+        </member>
+        <member name="F:Tfplugin5.Configure.Types.Request.TerraformVersionFieldNumber">
+            <summary>Field number for the "terraform_version" field.</summary>
+        </member>
+        <member name="F:Tfplugin5.Configure.Types.Request.ConfigFieldNumber">
+            <summary>Field number for the "config" field.</summary>
+        </member>
+        <member name="F:Tfplugin5.Configure.Types.Response.DiagnosticsFieldNumber">
+            <summary>Field number for the "diagnostics" field.</summary>
+        </member>
+        <member name="T:Tfplugin5.ReadResource.Types">
+            <summary>Container for nested types declared in the ReadResource message type.</summary>
+        </member>
+        <member name="F:Tfplugin5.ReadResource.Types.Request.TypeNameFieldNumber">
+            <summary>Field number for the "type_name" field.</summary>
+        </member>
+        <member name="F:Tfplugin5.ReadResource.Types.Request.CurrentStateFieldNumber">
+            <summary>Field number for the "current_state" field.</summary>
+        </member>
+        <member name="F:Tfplugin5.ReadResource.Types.Request.PrivateFieldNumber">
+            <summary>Field number for the "private" field.</summary>
+        </member>
+        <member name="F:Tfplugin5.ReadResource.Types.Request.ProviderMetaFieldNumber">
+            <summary>Field number for the "provider_meta" field.</summary>
+        </member>
+        <member name="F:Tfplugin5.ReadResource.Types.Response.NewStateFieldNumber">
+            <summary>Field number for the "new_state" field.</summary>
+        </member>
+        <member name="F:Tfplugin5.ReadResource.Types.Response.DiagnosticsFieldNumber">
+            <summary>Field number for the "diagnostics" field.</summary>
+        </member>
+        <member name="F:Tfplugin5.ReadResource.Types.Response.PrivateFieldNumber">
+            <summary>Field number for the "private" field.</summary>
+        </member>
+        <member name="T:Tfplugin5.PlanResourceChange.Types">
+            <summary>Container for nested types declared in the PlanResourceChange message type.</summary>
+        </member>
+        <member name="F:Tfplugin5.PlanResourceChange.Types.Request.TypeNameFieldNumber">
+            <summary>Field number for the "type_name" field.</summary>
+        </member>
+        <member name="F:Tfplugin5.PlanResourceChange.Types.Request.PriorStateFieldNumber">
+            <summary>Field number for the "prior_state" field.</summary>
+        </member>
+        <member name="F:Tfplugin5.PlanResourceChange.Types.Request.ProposedNewStateFieldNumber">
+            <summary>Field number for the "proposed_new_state" field.</summary>
+        </member>
+        <member name="F:Tfplugin5.PlanResourceChange.Types.Request.ConfigFieldNumber">
+            <summary>Field number for the "config" field.</summary>
+        </member>
+        <member name="F:Tfplugin5.PlanResourceChange.Types.Request.PriorPrivateFieldNumber">
+            <summary>Field number for the "prior_private" field.</summary>
+        </member>
+        <member name="F:Tfplugin5.PlanResourceChange.Types.Request.ProviderMetaFieldNumber">
+            <summary>Field number for the "provider_meta" field.</summary>
+        </member>
+        <member name="F:Tfplugin5.PlanResourceChange.Types.Response.PlannedStateFieldNumber">
+            <summary>Field number for the "planned_state" field.</summary>
+        </member>
+        <member name="F:Tfplugin5.PlanResourceChange.Types.Response.RequiresReplaceFieldNumber">
+            <summary>Field number for the "requires_replace" field.</summary>
+        </member>
+        <member name="F:Tfplugin5.PlanResourceChange.Types.Response.PlannedPrivateFieldNumber">
+            <summary>Field number for the "planned_private" field.</summary>
+        </member>
+        <member name="F:Tfplugin5.PlanResourceChange.Types.Response.DiagnosticsFieldNumber">
+            <summary>Field number for the "diagnostics" field.</summary>
+        </member>
+        <member name="F:Tfplugin5.PlanResourceChange.Types.Response.LegacyTypeSystemFieldNumber">
+            <summary>Field number for the "legacy_type_system" field.</summary>
+        </member>
+        <member name="P:Tfplugin5.PlanResourceChange.Types.Response.LegacyTypeSystem">
+             <summary>
+             This may be set only by the helper/schema "SDK" in the main Terraform
+             repository, to request that Terraform Core >=0.12 permit additional
+             inconsistencies that can result from the legacy SDK type system
+             and its imprecise mapping to the >=0.12 type system.
+             The change in behavior implied by this flag makes sense only for the
+             specific details of the legacy SDK type system, and are not a general
+             mechanism to avoid proper type handling in providers.
+            
+                 ====              DO NOT USE THIS              ====
+                 ==== THIS MUST BE LEFT UNSET IN ALL OTHER SDKS ====
+                 ====              DO NOT USE THIS              ====
+             </summary>
+        </member>
+        <member name="T:Tfplugin5.ApplyResourceChange.Types">
+            <summary>Container for nested types declared in the ApplyResourceChange message type.</summary>
+        </member>
+        <member name="F:Tfplugin5.ApplyResourceChange.Types.Request.TypeNameFieldNumber">
+            <summary>Field number for the "type_name" field.</summary>
+        </member>
+        <member name="F:Tfplugin5.ApplyResourceChange.Types.Request.PriorStateFieldNumber">
+            <summary>Field number for the "prior_state" field.</summary>
+        </member>
+        <member name="F:Tfplugin5.ApplyResourceChange.Types.Request.PlannedStateFieldNumber">
+            <summary>Field number for the "planned_state" field.</summary>
+        </member>
+        <member name="F:Tfplugin5.ApplyResourceChange.Types.Request.ConfigFieldNumber">
+            <summary>Field number for the "config" field.</summary>
+        </member>
+        <member name="F:Tfplugin5.ApplyResourceChange.Types.Request.PlannedPrivateFieldNumber">
+            <summary>Field number for the "planned_private" field.</summary>
+        </member>
+        <member name="F:Tfplugin5.ApplyResourceChange.Types.Request.ProviderMetaFieldNumber">
+            <summary>Field number for the "provider_meta" field.</summary>
+        </member>
+        <member name="F:Tfplugin5.ApplyResourceChange.Types.Response.NewStateFieldNumber">
+            <summary>Field number for the "new_state" field.</summary>
+        </member>
+        <member name="F:Tfplugin5.ApplyResourceChange.Types.Response.PrivateFieldNumber">
+            <summary>Field number for the "private" field.</summary>
+        </member>
+        <member name="F:Tfplugin5.ApplyResourceChange.Types.Response.DiagnosticsFieldNumber">
+            <summary>Field number for the "diagnostics" field.</summary>
+        </member>
+        <member name="F:Tfplugin5.ApplyResourceChange.Types.Response.LegacyTypeSystemFieldNumber">
+            <summary>Field number for the "legacy_type_system" field.</summary>
+        </member>
+        <member name="P:Tfplugin5.ApplyResourceChange.Types.Response.LegacyTypeSystem">
+             <summary>
+             This may be set only by the helper/schema "SDK" in the main Terraform
+             repository, to request that Terraform Core >=0.12 permit additional
+             inconsistencies that can result from the legacy SDK type system
+             and its imprecise mapping to the >=0.12 type system.
+             The change in behavior implied by this flag makes sense only for the
+             specific details of the legacy SDK type system, and are not a general
+             mechanism to avoid proper type handling in providers.
+            
+                 ====              DO NOT USE THIS              ====
+                 ==== THIS MUST BE LEFT UNSET IN ALL OTHER SDKS ====
+                 ====              DO NOT USE THIS              ====
+             </summary>
+        </member>
+        <member name="T:Tfplugin5.ImportResourceState.Types">
+            <summary>Container for nested types declared in the ImportResourceState message type.</summary>
+        </member>
+        <member name="F:Tfplugin5.ImportResourceState.Types.Request.TypeNameFieldNumber">
+            <summary>Field number for the "type_name" field.</summary>
+        </member>
+        <member name="F:Tfplugin5.ImportResourceState.Types.Request.IdFieldNumber">
+            <summary>Field number for the "id" field.</summary>
+        </member>
+        <member name="F:Tfplugin5.ImportResourceState.Types.ImportedResource.TypeNameFieldNumber">
+            <summary>Field number for the "type_name" field.</summary>
+        </member>
+        <member name="F:Tfplugin5.ImportResourceState.Types.ImportedResource.StateFieldNumber">
+            <summary>Field number for the "state" field.</summary>
+        </member>
+        <member name="F:Tfplugin5.ImportResourceState.Types.ImportedResource.PrivateFieldNumber">
+            <summary>Field number for the "private" field.</summary>
+        </member>
+        <member name="F:Tfplugin5.ImportResourceState.Types.Response.ImportedResourcesFieldNumber">
+            <summary>Field number for the "imported_resources" field.</summary>
+        </member>
+        <member name="F:Tfplugin5.ImportResourceState.Types.Response.DiagnosticsFieldNumber">
+            <summary>Field number for the "diagnostics" field.</summary>
+        </member>
+        <member name="T:Tfplugin5.ReadDataSource.Types">
+            <summary>Container for nested types declared in the ReadDataSource message type.</summary>
+        </member>
+        <member name="F:Tfplugin5.ReadDataSource.Types.Request.TypeNameFieldNumber">
+            <summary>Field number for the "type_name" field.</summary>
+        </member>
+        <member name="F:Tfplugin5.ReadDataSource.Types.Request.ConfigFieldNumber">
+            <summary>Field number for the "config" field.</summary>
+        </member>
+        <member name="F:Tfplugin5.ReadDataSource.Types.Request.ProviderMetaFieldNumber">
+            <summary>Field number for the "provider_meta" field.</summary>
+        </member>
+        <member name="F:Tfplugin5.ReadDataSource.Types.Response.StateFieldNumber">
+            <summary>Field number for the "state" field.</summary>
+        </member>
+        <member name="F:Tfplugin5.ReadDataSource.Types.Response.DiagnosticsFieldNumber">
+            <summary>Field number for the "diagnostics" field.</summary>
+        </member>
+        <member name="T:Tfplugin5.GetProvisionerSchema.Types">
+            <summary>Container for nested types declared in the GetProvisionerSchema message type.</summary>
+        </member>
+        <member name="F:Tfplugin5.GetProvisionerSchema.Types.Response.ProvisionerFieldNumber">
+            <summary>Field number for the "provisioner" field.</summary>
+        </member>
+        <member name="F:Tfplugin5.GetProvisionerSchema.Types.Response.DiagnosticsFieldNumber">
+            <summary>Field number for the "diagnostics" field.</summary>
+        </member>
+        <member name="T:Tfplugin5.ValidateProvisionerConfig.Types">
+            <summary>Container for nested types declared in the ValidateProvisionerConfig message type.</summary>
+        </member>
+        <member name="F:Tfplugin5.ValidateProvisionerConfig.Types.Request.ConfigFieldNumber">
+            <summary>Field number for the "config" field.</summary>
+        </member>
+        <member name="F:Tfplugin5.ValidateProvisionerConfig.Types.Response.DiagnosticsFieldNumber">
+            <summary>Field number for the "diagnostics" field.</summary>
+        </member>
+        <member name="T:Tfplugin5.ProvisionResource.Types">
+            <summary>Container for nested types declared in the ProvisionResource message type.</summary>
+        </member>
+        <member name="F:Tfplugin5.ProvisionResource.Types.Request.ConfigFieldNumber">
+            <summary>Field number for the "config" field.</summary>
+        </member>
+        <member name="F:Tfplugin5.ProvisionResource.Types.Request.ConnectionFieldNumber">
+            <summary>Field number for the "connection" field.</summary>
+        </member>
+        <member name="F:Tfplugin5.ProvisionResource.Types.Response.OutputFieldNumber">
+            <summary>Field number for the "output" field.</summary>
+        </member>
+        <member name="F:Tfplugin5.ProvisionResource.Types.Response.DiagnosticsFieldNumber">
+            <summary>Field number for the "diagnostics" field.</summary>
+        </member>
+        <member name="P:Tfplugin5.Provider.Descriptor">
+            <summary>Service descriptor</summary>
+        </member>
+        <member name="T:Tfplugin5.Provider.ProviderBase">
+            <summary>Base class for server-side implementations of Provider</summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:Tfplugin5.Provider.ProviderBase.GetSchema(Tfplugin5.GetProviderSchema.Types.Request,Grpc.Core.ServerCallContext)" -->
+        <!-- Badly formed XML comment ignored for member "M:Tfplugin5.Provider.ProviderBase.Configure(Tfplugin5.Configure.Types.Request,Grpc.Core.ServerCallContext)" -->
+        <!-- Badly formed XML comment ignored for member "M:Tfplugin5.Provider.ProviderBase.ReadResource(Tfplugin5.ReadResource.Types.Request,Grpc.Core.ServerCallContext)" -->
+        <!-- Badly formed XML comment ignored for member "M:Tfplugin5.Provider.ProviderBase.Stop(Tfplugin5.Stop.Types.Request,Grpc.Core.ServerCallContext)" -->
+        <member name="M:Tfplugin5.Provider.BindService(Tfplugin5.Provider.ProviderBase)">
+            <summary>Creates service definition that can be registered with a server</summary>
+            <param name="serviceImpl">An object implementing the server-side handling logic.</param>
+        </member>
+        <member name="M:Tfplugin5.Provider.BindService(Grpc.Core.ServiceBinderBase,Tfplugin5.Provider.ProviderBase)">
+            <summary>Register service method with a service binder with or without implementation. Useful when customizing the service binding logic.
+            Note: this method is part of an experimental API that can change or be removed without any prior notice.</summary>
+            <param name="serviceBinder">Service methods will be bound by calling <c>AddMethod</c> on this object.</param>
+            <param name="serviceImpl">An object implementing the server-side handling logic.</param>
+        </member>
+        <member name="P:Tfplugin5.Provisioner.Descriptor">
+            <summary>Service descriptor</summary>
+        </member>
+        <member name="T:Tfplugin5.Provisioner.ProvisionerBase">
+            <summary>Base class for server-side implementations of Provisioner</summary>
+        </member>
+        <member name="M:Tfplugin5.Provisioner.BindService(Tfplugin5.Provisioner.ProvisionerBase)">
+            <summary>Creates service definition that can be registered with a server</summary>
+            <param name="serviceImpl">An object implementing the server-side handling logic.</param>
+        </member>
+        <member name="M:Tfplugin5.Provisioner.BindService(Grpc.Core.ServiceBinderBase,Tfplugin5.Provisioner.ProvisionerBase)">
+            <summary>Register service method with a service binder with or without implementation. Useful when customizing the service binding logic.
+            Note: this method is part of an experimental API that can change or be removed without any prior notice.</summary>
+            <param name="serviceBinder">Service methods will be bound by calling <c>AddMethod</c> on this object.</param>
+            <param name="serviceImpl">An object implementing the server-side handling logic.</param>
+        </member>
+    </members>
+</doc>

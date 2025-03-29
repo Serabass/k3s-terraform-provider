@@ -1,0 +1,8 @@
+2025-03-29 18:12:15.609 +05:00 [INF] Now listening on: https://localhost:5344
+2025-03-29 18:12:15.624 +05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-03-29 18:12:15.625 +05:00 [INF] Hosting environment: Production
+2025-03-29 18:12:15.625 +05:00 [INF] Content root path: M:\dev\csharp\k3s-terraform-provider\test
+2025-03-29 18:12:36.818 +05:00 [INF] Now listening on: https://localhost:5344
+2025-03-29 18:12:36.835 +05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-03-29 18:12:36.836 +05:00 [INF] Hosting environment: Production
+2025-03-29 18:12:36.836 +05:00 [INF] Content root path: M:\dev\csharp\k3s-terraform-provider\test
