@@ -60,8 +60,14 @@ public class ServerProvider : IResourceProvider<ServerResource>
 
   public Task<ServerResource> UpdateAsync(ServerResource? prior, ServerResource planned)
   {
-    var installer = planned.CreateInstaller();
-    installer.InstallK3SServer(planned.Version);
+    if (planned.Version != prior?.Version)
+    {
+      var installer = planned.CreateInstaller();
+
+      // installer.UninstallK3SServer();
+      installer.InstallK3SServer(planned.Version);
+    }
+
     return Task.FromResult(planned);
   }
 

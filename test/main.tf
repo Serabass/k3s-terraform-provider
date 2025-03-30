@@ -33,7 +33,7 @@ resource "k3s_server" "master" {
   port = 22
   username = local.master.username
   password = local.master.password
-  version = "v1.32.3+k3s1"
+  version = "v1.32.3"
 }
 
 output "cluster_id" {

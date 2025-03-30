@@ -45,7 +45,7 @@ public class K3SInstaller
     using var sshClient = new SshClient(_connectionInfo);
     sshClient.Connect();
 
-    var command = $"curl -sfL https://get.k3s.io | INSTALL_K3S_VERSION={version} sh -";
+    var command = $"curl -sfL https://get.k3s.io | INSTALL_K3S_VERSION={version}+k3s1 sh -";
     var result = sshClient.RunCommand(command);
     return GetK3SServerToken();
   }
@@ -56,7 +56,7 @@ public class K3SInstaller
     sshClient.Connect();
 
     var command =
-      $"curl -sfL https://get.k3s.io | INSTALL_K3S_VERSION={version} K3S_URL={url} K3S_TOKEN={token} sh -";
+      $"curl -sfL https://get.k3s.io | INSTALL_K3S_VERSION={version}+k3s1 K3S_URL={url} K3S_TOKEN={token} sh -";
     var result = sshClient.RunCommand(command);
     return result.Result;
   }
