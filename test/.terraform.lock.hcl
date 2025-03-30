@@ -5,6 +5,6 @@ provider "example.com/serabass/k3s" {
   version     = "1.0.0"
   constraints = "~> 1.0.0"
   hashes = [
-    "h1:+XPo+VqadPKnfJwH9V9kADky7j5em06KmsmXeBViX1E=",
+    "h1:l3UUEo8X1EF2ljMJg4hnEDqqSAhYkT+D4NHdfnlfutM=",
   ]
 }

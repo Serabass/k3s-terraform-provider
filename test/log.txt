@@ -1,0 +1,52 @@
+2025-03-30 18:56:19.986 +05:00 [INF] Now listening on: https://localhost:5344
+2025-03-30 18:56:20.001 +05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-03-30 18:56:20.004 +05:00 [INF] Hosting environment: Production
+2025-03-30 18:56:20.004 +05:00 [INF] Content root path: M:\dev\csharp\k3s-terraform-provider\test
+2025-03-30 18:56:24.119 +05:00 [INF] Now listening on: https://localhost:5344
+2025-03-30 18:56:24.131 +05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-03-30 18:56:24.132 +05:00 [INF] Hosting environment: Production
+2025-03-30 18:56:24.132 +05:00 [INF] Content root path: M:\dev\csharp\k3s-terraform-provider\test
+2025-03-30 18:56:27.842 +05:00 [INF] Now listening on: https://localhost:5344
+2025-03-30 18:56:27.854 +05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-03-30 18:56:27.854 +05:00 [INF] Hosting environment: Production
+2025-03-30 18:56:27.854 +05:00 [INF] Content root path: M:\dev\csharp\k3s-terraform-provider\test
+2025-03-30 18:56:28.180 +05:00 [INF] Request starting HTTP/2 POST https://localhost/tfplugin5.Provider/PlanResourceChange application/grpc -
+2025-03-30 18:56:28.180 +05:00 [INF] Request starting HTTP/2 POST https://localhost/tfplugin5.Provider/PlanResourceChange application/grpc -
+2025-03-30 18:56:28.180 +05:00 [INF] Request starting HTTP/2 POST https://localhost/tfplugin5.Provider/PlanResourceChange application/grpc -
+2025-03-30 18:56:28.197 +05:00 [INF] Request finished HTTP/2 POST https://localhost/tfplugin5.Provider/PlanResourceChange application/grpc - - 200 - application/grpc 16.9952ms
+2025-03-30 18:56:28.199 +05:00 [INF] Request finished HTTP/2 POST https://localhost/tfplugin5.Provider/PlanResourceChange application/grpc - - 200 - application/grpc 18.4869ms
+2025-03-30 18:56:28.209 +05:00 [INF] Request finished HTTP/2 POST https://localhost/tfplugin5.Provider/PlanResourceChange application/grpc - - 200 - application/grpc 28.4502ms
+2025-03-30 18:56:32.450 +05:00 [INF] Now listening on: https://localhost:5344
+2025-03-30 18:56:32.467 +05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-03-30 18:56:32.469 +05:00 [INF] Hosting environment: Production
+2025-03-30 18:56:32.469 +05:00 [INF] Content root path: M:\dev\csharp\k3s-terraform-provider\test
+2025-03-30 18:56:36.592 +05:00 [INF] Now listening on: https://localhost:5344
+2025-03-30 18:56:36.606 +05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-03-30 18:56:36.607 +05:00 [INF] Hosting environment: Production
+2025-03-30 18:56:36.607 +05:00 [INF] Content root path: M:\dev\csharp\k3s-terraform-provider\test
+2025-03-30 18:56:40.855 +05:00 [INF] Now listening on: https://localhost:5344
+2025-03-30 18:56:40.872 +05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-03-30 18:56:40.873 +05:00 [INF] Hosting environment: Production
+2025-03-30 18:56:40.873 +05:00 [INF] Content root path: M:\dev\csharp\k3s-terraform-provider\test
+2025-03-30 18:56:41.236 +05:00 [INF] Request starting HTTP/2 POST https://localhost/tfplugin5.Provider/PlanResourceChange application/grpc -
+2025-03-30 18:56:41.236 +05:00 [INF] Request starting HTTP/2 POST https://localhost/tfplugin5.Provider/PlanResourceChange application/grpc -
+2025-03-30 18:56:41.236 +05:00 [INF] Request starting HTTP/2 POST https://localhost/tfplugin5.Provider/PlanResourceChange application/grpc -
+2025-03-30 18:56:41.260 +05:00 [INF] Request finished HTTP/2 POST https://localhost/tfplugin5.Provider/PlanResourceChange application/grpc - - 200 - application/grpc 24.0270ms
+2025-03-30 18:56:41.263 +05:00 [INF] Request finished HTTP/2 POST https://localhost/tfplugin5.Provider/PlanResourceChange application/grpc - - 200 - application/grpc 26.9188ms
+2025-03-30 18:56:41.275 +05:00 [INF] Request finished HTTP/2 POST https://localhost/tfplugin5.Provider/PlanResourceChange application/grpc - - 200 - application/grpc 39.2347ms
+2025-03-30 18:56:45.523 +05:00 [INF] Now listening on: https://localhost:5344
+2025-03-30 18:56:45.536 +05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-03-30 18:56:45.537 +05:00 [INF] Hosting environment: Production
+2025-03-30 18:56:45.537 +05:00 [INF] Content root path: M:\dev\csharp\k3s-terraform-provider\test
+2025-03-30 18:56:45.871 +05:00 [INF] Request starting HTTP/2 POST https://localhost/tfplugin5.Provider/PlanResourceChange application/grpc -
+2025-03-30 18:56:45.871 +05:00 [INF] Request starting HTTP/2 POST https://localhost/tfplugin5.Provider/PlanResourceChange application/grpc -
+2025-03-30 18:56:45.871 +05:00 [INF] Request starting HTTP/2 POST https://localhost/tfplugin5.Provider/PlanResourceChange application/grpc -
+2025-03-30 18:56:45.890 +05:00 [INF] Request finished HTTP/2 POST https://localhost/tfplugin5.Provider/PlanResourceChange application/grpc - - 200 - application/grpc 18.8059ms
+2025-03-30 18:56:45.891 +05:00 [INF] Request starting HTTP/2 POST https://localhost/tfplugin5.Provider/ApplyResourceChange application/grpc -
+2025-03-30 18:56:45.894 +05:00 [INF] Request finished HTTP/2 POST https://localhost/tfplugin5.Provider/PlanResourceChange application/grpc - - 200 - application/grpc 22.9366ms
+2025-03-30 18:56:45.896 +05:00 [INF] Request starting HTTP/2 POST https://localhost/tfplugin5.Provider/ApplyResourceChange application/grpc -
+2025-03-30 18:56:45.897 +05:00 [INF] Request finished HTTP/2 POST https://localhost/tfplugin5.Provider/ApplyResourceChange application/grpc - - 200 - application/grpc 6.3532ms
+2025-03-30 18:56:45.899 +05:00 [INF] Request finished HTTP/2 POST https://localhost/tfplugin5.Provider/ApplyResourceChange application/grpc - - 200 - application/grpc 3.6120ms
+2025-03-30 18:56:45.910 +05:00 [INF] Request finished HTTP/2 POST https://localhost/tfplugin5.Provider/PlanResourceChange application/grpc - - 200 - application/grpc 38.8805ms
+2025-03-30 18:56:45.912 +05:00 [INF] Request starting HTTP/2 POST https://localhost/tfplugin5.Provider/ApplyResourceChange application/grpc -
+2025-03-30 18:57:23.304 +05:00 [INF] Request finished HTTP/2 POST https://localhost/tfplugin5.Provider/ApplyResourceChange application/grpc - - 200 - application/grpc 37392.6467ms

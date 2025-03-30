@@ -13,5 +13,5 @@ public class SandboxResource
   [Key("cluster_id")]
   [Description("ID of the cluster.")]
   [Required]
-  required public string ClusterId { get; set; }
+  public string ClusterId { get; set; } = null!;
 }

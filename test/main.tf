@@ -28,28 +28,28 @@ resource "k3s_cluster" "smarthome" {
 }
 
 resource "k3s_sandbox" "sandbox" {
-  cluster_id = k3s_cluster.smarthome.id
+  cluster_id = "0"
 }
 
-# resource "k3s_server" "master" {
-#   cluster_id = k3s_cluster.smarthome.id
-#   name       = local.master.name
-#   ssh = {
-#     host       = local.master.ip
-#     port       = 22
-#     username   = local.master.username
-#     password   = local.master.password
-#   }
-# }
+resource "k3s_server" "master" {
+  cluster_id = "0" # k3s_cluster.smarthome.id
+  name       = local.master.name
+  ssh = {
+    host       = local.master.ip
+    port       = 22
+    username   = local.master.username
+    password   = local.master.password
+  }
+}
 
 output "cluster_id" {
   value = k3s_cluster.smarthome.id
 }
 
-// output "master_token" {
-//   value = k3s_server.master.token
-// }
-// 
-// output "master_url" {
-//   value = k3s_server.master.url
-// }
+output "master_token" {
+  value = k3s_server.master.token
+}
+
+output "master_url" {
+  value = k3s_server.master.url
+}

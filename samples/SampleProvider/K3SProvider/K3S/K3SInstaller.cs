@@ -68,9 +68,10 @@ public class K3SInstaller
     var command = new StringBuilder($"curl -sfL https://get.k3s.io");
     if (_version is not null)
     {
-      command.Append($" | INSTALL_K3S_VERSION={_version}");
+      command.Append($" | INSTALL_K3S_VERSION={_version}+k3s1");
     }
     command.Append($" sh -");
+    Logger.Log(command.ToString());
     var result = sshClient.RunCommand(command.ToString());
     return GetK3SServerToken();
   }
@@ -90,6 +91,7 @@ public class K3SInstaller
     command.Append($" K3S_URL={url} ");
     command.Append($" K3S_TOKEN={token} ");
     command.Append($" sh - ");
+    Logger.Log(command.ToString());
     var result = sshClient.RunCommand(command.ToString());
     return result.Result;
   }
@@ -100,6 +102,7 @@ public class K3SInstaller
     sshClient.Connect();
 
     var command = "sudo /usr/local/bin/k3s-uninstall.sh";
+    Logger.Log(command);
     sshClient.RunCommand(command);
   }
 
@@ -109,6 +112,7 @@ public class K3SInstaller
     sshClient.Connect();
 
     var command = "sudo /usr/local/bin/k3s-agent-uninstall.sh";
+    Logger.Log(command);
     sshClient.RunCommand(command);
   }
 
@@ -118,6 +122,7 @@ public class K3SInstaller
     sshClient.Connect();
 
     var command = "sudo cat /var/lib/rancher/k3s/server/token";
+    Logger.Log(command);
     var result = sshClient.RunCommand(command);
     return result.Result;
   }
