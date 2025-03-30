@@ -25,7 +25,9 @@ public class ServerProvider : IResourceProvider<ServerResource>
 
     if (proposed.Host != prior.Host)
     {
-      prior.CreateInstaller().UninstallK3SServer();
+      var version = _configurator.Config?.K3SVersion;
+      var installer = prior.CreateInstaller(version);
+      installer.UninstallK3SServer();
 
       // proposed.CreateInstaller().InstallK3SServer(proposed.Version);
     }
@@ -36,8 +38,8 @@ public class ServerProvider : IResourceProvider<ServerResource>
   public Task<ServerResource> CreateAsync(ServerResource planned)
   {
     var version = _configurator.Config?.K3SVersion;
-    var installer = planned.CreateInstaller();
-    installer.InstallK3SServer(version);
+    var installer = planned.CreateInstaller(version);
+    installer.InstallK3SServer();
     planned.Token = installer.GetK3SServerToken();
     planned.Url = $"https://{planned.Host}:6443";
 
@@ -46,7 +48,8 @@ public class ServerProvider : IResourceProvider<ServerResource>
 
   public Task DeleteAsync(ServerResource resource)
   {
-    var installer = resource.CreateInstaller();
+    var version = _configurator.Config?.K3SVersion;
+    var installer = resource.CreateInstaller(version);
     installer.UninstallK3SServer();
 
     return Task.CompletedTask;
@@ -54,7 +57,8 @@ public class ServerProvider : IResourceProvider<ServerResource>
 
   public Task<ServerResource> ReadAsync(ServerResource resource)
   {
-    var installer = resource.CreateInstaller();
+    var version = _configurator.Config?.K3SVersion;
+    var installer = resource.CreateInstaller(version);
     resource.Token = installer.GetK3SServerToken();
     return Task.FromResult(resource);
   }
@@ -62,10 +66,10 @@ public class ServerProvider : IResourceProvider<ServerResource>
   public Task<ServerResource> UpdateAsync(ServerResource? prior, ServerResource planned)
   {
     var version = _configurator.Config?.K3SVersion;
-    var installer = planned.CreateInstaller();
+    var installer = planned.CreateInstaller(version);
 
     // installer.UninstallK3SServer();
-    installer.InstallK3SServer(version);
+    installer.InstallK3SServer();
     return Task.FromResult(planned);
   }
 

@@ -12,17 +12,18 @@ public class K3SInstaller
   private readonly string _username;
   private readonly string _password;
   private readonly string _sshKey;
+  private readonly string? _version;
 
   private readonly ConnectionInfo _connectionInfo;
 
-  public K3SInstaller(string host, int port, string username, string password, string sshKey)
+  public K3SInstaller(string host, int port, string username, string password, string sshKey, string? version)
   {
     _host = host;
     _port = port;
     _username = username;
     _password = password;
     _sshKey = sshKey;
-
+    _version = version;
     _connectionInfo = new ConnectionInfo(
       _host,
       _port,
@@ -30,33 +31,33 @@ public class K3SInstaller
       new PasswordAuthenticationMethod(_username, _password));
   }
 
-  public K3SInstaller(ServerResource server)
-    : this(server.Host, server.Port, server.Username, server.Password, server.SshKey)
+  public K3SInstaller(ServerResource server, string? version)
+    : this(server.Host, server.Port, server.Username, server.Password, server.SshKey, version)
     {
     }
 
-  public K3SInstaller(AgentResource agent)
-    : this(agent.Host, agent.Port, agent.Username, agent.Password, agent.SshKey)
+  public K3SInstaller(AgentResource agent, string? version)
+    : this(agent.Host, agent.Port, agent.Username, agent.Password, agent.SshKey, version)
     {
     }
 
-  public string InstallK3SServer(string? version)
+  public string InstallK3SServer()
   {
     using var sshClient = new SshClient(_connectionInfo);
     sshClient.Connect();
 
-    var command = $"curl -sfL https://get.k3s.io | INSTALL_K3S_VERSION={version}+k3s1 sh -";
+    var command = $"curl -sfL https://get.k3s.io | INSTALL_K3S_VERSION={_version}+k3s1 sh -";
     var result = sshClient.RunCommand(command);
     return GetK3SServerToken();
   }
 
-  public string InstallK3SAgent(string? version, string url, string token)
+  public string InstallK3SAgent(string url, string token)
   {
     using var sshClient = new SshClient(_connectionInfo);
     sshClient.Connect();
 
     var command =
-      $"curl -sfL https://get.k3s.io | INSTALL_K3S_VERSION={version}+k3s1 K3S_URL={url} K3S_TOKEN={token} sh -";
+      $"curl -sfL https://get.k3s.io | INSTALL_K3S_VERSION={_version}+k3s1 K3S_URL={url} K3S_TOKEN={token} sh -";
     var result = sshClient.RunCommand(command);
     return result.Result;
   }

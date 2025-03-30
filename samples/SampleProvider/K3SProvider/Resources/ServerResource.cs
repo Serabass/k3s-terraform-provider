@@ -54,5 +54,5 @@ public class ServerResource
   [MessagePackFormatter(typeof(ComputedStringValueFormatter))]
   public string Url { get; set; } = string.Empty;
 
-  public K3SInstaller CreateInstaller() => new(this);
+  public K3SInstaller CreateInstaller(string? version) => new(this, version);
 }

@@ -49,5 +49,5 @@ public class AgentResource
   [Description("Token of the server.")]
   public string Token { get; set; } = null!;
 
-  public K3SInstaller CreateInstaller() => new(this);
+  public K3SInstaller CreateInstaller(string? version) => new(this, version);
 }

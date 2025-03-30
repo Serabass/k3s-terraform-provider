@@ -24,14 +24,15 @@ public class AgentProvider : IResourceProvider<AgentResource>
   public Task<AgentResource> CreateAsync(AgentResource planned)
   {
     var version = _configurator.Config?.K3SVersion;
-    var installer = new K3SInstaller(planned);
-    installer.InstallK3SAgent(version, planned.Url, planned.Token);
+    var installer = planned.CreateInstaller(version);
+    installer.InstallK3SAgent(planned.Url, planned.Token);
     return Task.FromResult(planned);
   }
 
   public Task DeleteAsync(AgentResource resource)
   {
-    var installer = resource.CreateInstaller();
+    var version = _configurator.Config?.K3SVersion;
+    var installer = resource.CreateInstaller(version);
     installer.UninstallK3SAgent();
 
     return Task.CompletedTask;
@@ -39,7 +40,8 @@ public class AgentProvider : IResourceProvider<AgentResource>
 
   public Task<AgentResource> ReadAsync(AgentResource resource)
   {
-    var installer = resource.CreateInstaller();
+    var version = _configurator.Config?.K3SVersion;
+    var installer = resource.CreateInstaller(version);
     resource.Token = installer.GetK3SServerToken();
 
     return Task.FromResult(resource);
@@ -52,11 +54,6 @@ public class AgentProvider : IResourceProvider<AgentResource>
       throw new TerraformResourceProviderException("Prior resource is required.");
     }
 
-    if (prior.Version != planned.Version)
-    {
-      var installer = planned.CreateInstaller();
-      installer.InstallK3SAgent(planned.Version, planned.Url, planned.Token);
-    }
     return Task.FromResult(planned);
   }
 
