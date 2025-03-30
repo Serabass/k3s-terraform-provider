@@ -5,7 +5,7 @@ using TerraformPluginDotNet.Resources;
 
 namespace K3SProvider.Resources;
 
-[SchemaVersion(1)]
+[SchemaVersion(2)]
 [MessagePackObject]
 public class AgentResource
 {
