@@ -25,17 +25,17 @@ public class ServerResource
   [Required]
   public SSH Ssh { get; set; } = null!;
 
-  // [Key("token")]
-  // [Description("Token of the server.")]
-  // [Computed]
-  // [MessagePackFormatter(typeof(ComputedStringValueFormatter))]
-  // public string Token { get; set; } = null!;
-  //
-  // [Key("url")]
-  // [Description("URL of the server.")]
-  // [Computed]
-  // [MessagePackFormatter(typeof(ComputedStringValueFormatter))]
-  // public string Url { get; set; } = string.Empty;
+  [Key("token")]
+  [Description("Token of the server.")]
+  [Computed]
+  [MessagePackFormatter(typeof(ComputedStringValueFormatter))]
+  public string Token { get; set; } = null!;
+
+  [Key("url")]
+  [Description("URL of the server.")]
+  [Computed]
+  [MessagePackFormatter(typeof(ComputedStringValueFormatter))]
+  public string Url { get; set; } = string.Empty;
 
   public K3SInstaller CreateInstaller(string? version) => new(this, version);
 }
