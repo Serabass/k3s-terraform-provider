@@ -124,6 +124,6 @@ public class K3SInstaller
     var command = "sudo cat /var/lib/rancher/k3s/server/token";
     Logger.Log(command);
     var result = sshClient.RunCommand(command);
-    return result.Result;
+    return result.Result.Trim();
   }
 }

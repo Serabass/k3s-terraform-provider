@@ -1,52 +1,76 @@
-2025-03-30 18:56:19.986 +05:00 [INF] Now listening on: https://localhost:5344
-2025-03-30 18:56:20.001 +05:00 [INF] Application started. Press Ctrl+C to shut down.
-2025-03-30 18:56:20.004 +05:00 [INF] Hosting environment: Production
-2025-03-30 18:56:20.004 +05:00 [INF] Content root path: M:\dev\csharp\k3s-terraform-provider\test
-2025-03-30 18:56:24.119 +05:00 [INF] Now listening on: https://localhost:5344
-2025-03-30 18:56:24.131 +05:00 [INF] Application started. Press Ctrl+C to shut down.
-2025-03-30 18:56:24.132 +05:00 [INF] Hosting environment: Production
-2025-03-30 18:56:24.132 +05:00 [INF] Content root path: M:\dev\csharp\k3s-terraform-provider\test
-2025-03-30 18:56:27.842 +05:00 [INF] Now listening on: https://localhost:5344
-2025-03-30 18:56:27.854 +05:00 [INF] Application started. Press Ctrl+C to shut down.
-2025-03-30 18:56:27.854 +05:00 [INF] Hosting environment: Production
-2025-03-30 18:56:27.854 +05:00 [INF] Content root path: M:\dev\csharp\k3s-terraform-provider\test
-2025-03-30 18:56:28.180 +05:00 [INF] Request starting HTTP/2 POST https://localhost/tfplugin5.Provider/PlanResourceChange application/grpc -
-2025-03-30 18:56:28.180 +05:00 [INF] Request starting HTTP/2 POST https://localhost/tfplugin5.Provider/PlanResourceChange application/grpc -
-2025-03-30 18:56:28.180 +05:00 [INF] Request starting HTTP/2 POST https://localhost/tfplugin5.Provider/PlanResourceChange application/grpc -
-2025-03-30 18:56:28.197 +05:00 [INF] Request finished HTTP/2 POST https://localhost/tfplugin5.Provider/PlanResourceChange application/grpc - - 200 - application/grpc 16.9952ms
-2025-03-30 18:56:28.199 +05:00 [INF] Request finished HTTP/2 POST https://localhost/tfplugin5.Provider/PlanResourceChange application/grpc - - 200 - application/grpc 18.4869ms
-2025-03-30 18:56:28.209 +05:00 [INF] Request finished HTTP/2 POST https://localhost/tfplugin5.Provider/PlanResourceChange application/grpc - - 200 - application/grpc 28.4502ms
-2025-03-30 18:56:32.450 +05:00 [INF] Now listening on: https://localhost:5344
-2025-03-30 18:56:32.467 +05:00 [INF] Application started. Press Ctrl+C to shut down.
-2025-03-30 18:56:32.469 +05:00 [INF] Hosting environment: Production
-2025-03-30 18:56:32.469 +05:00 [INF] Content root path: M:\dev\csharp\k3s-terraform-provider\test
-2025-03-30 18:56:36.592 +05:00 [INF] Now listening on: https://localhost:5344
-2025-03-30 18:56:36.606 +05:00 [INF] Application started. Press Ctrl+C to shut down.
-2025-03-30 18:56:36.607 +05:00 [INF] Hosting environment: Production
-2025-03-30 18:56:36.607 +05:00 [INF] Content root path: M:\dev\csharp\k3s-terraform-provider\test
-2025-03-30 18:56:40.855 +05:00 [INF] Now listening on: https://localhost:5344
-2025-03-30 18:56:40.872 +05:00 [INF] Application started. Press Ctrl+C to shut down.
-2025-03-30 18:56:40.873 +05:00 [INF] Hosting environment: Production
-2025-03-30 18:56:40.873 +05:00 [INF] Content root path: M:\dev\csharp\k3s-terraform-provider\test
-2025-03-30 18:56:41.236 +05:00 [INF] Request starting HTTP/2 POST https://localhost/tfplugin5.Provider/PlanResourceChange application/grpc -
-2025-03-30 18:56:41.236 +05:00 [INF] Request starting HTTP/2 POST https://localhost/tfplugin5.Provider/PlanResourceChange application/grpc -
-2025-03-30 18:56:41.236 +05:00 [INF] Request starting HTTP/2 POST https://localhost/tfplugin5.Provider/PlanResourceChange application/grpc -
-2025-03-30 18:56:41.260 +05:00 [INF] Request finished HTTP/2 POST https://localhost/tfplugin5.Provider/PlanResourceChange application/grpc - - 200 - application/grpc 24.0270ms
-2025-03-30 18:56:41.263 +05:00 [INF] Request finished HTTP/2 POST https://localhost/tfplugin5.Provider/PlanResourceChange application/grpc - - 200 - application/grpc 26.9188ms
-2025-03-30 18:56:41.275 +05:00 [INF] Request finished HTTP/2 POST https://localhost/tfplugin5.Provider/PlanResourceChange application/grpc - - 200 - application/grpc 39.2347ms
-2025-03-30 18:56:45.523 +05:00 [INF] Now listening on: https://localhost:5344
-2025-03-30 18:56:45.536 +05:00 [INF] Application started. Press Ctrl+C to shut down.
-2025-03-30 18:56:45.537 +05:00 [INF] Hosting environment: Production
-2025-03-30 18:56:45.537 +05:00 [INF] Content root path: M:\dev\csharp\k3s-terraform-provider\test
-2025-03-30 18:56:45.871 +05:00 [INF] Request starting HTTP/2 POST https://localhost/tfplugin5.Provider/PlanResourceChange application/grpc -
-2025-03-30 18:56:45.871 +05:00 [INF] Request starting HTTP/2 POST https://localhost/tfplugin5.Provider/PlanResourceChange application/grpc -
-2025-03-30 18:56:45.871 +05:00 [INF] Request starting HTTP/2 POST https://localhost/tfplugin5.Provider/PlanResourceChange application/grpc -
-2025-03-30 18:56:45.890 +05:00 [INF] Request finished HTTP/2 POST https://localhost/tfplugin5.Provider/PlanResourceChange application/grpc - - 200 - application/grpc 18.8059ms
-2025-03-30 18:56:45.891 +05:00 [INF] Request starting HTTP/2 POST https://localhost/tfplugin5.Provider/ApplyResourceChange application/grpc -
-2025-03-30 18:56:45.894 +05:00 [INF] Request finished HTTP/2 POST https://localhost/tfplugin5.Provider/PlanResourceChange application/grpc - - 200 - application/grpc 22.9366ms
-2025-03-30 18:56:45.896 +05:00 [INF] Request starting HTTP/2 POST https://localhost/tfplugin5.Provider/ApplyResourceChange application/grpc -
-2025-03-30 18:56:45.897 +05:00 [INF] Request finished HTTP/2 POST https://localhost/tfplugin5.Provider/ApplyResourceChange application/grpc - - 200 - application/grpc 6.3532ms
-2025-03-30 18:56:45.899 +05:00 [INF] Request finished HTTP/2 POST https://localhost/tfplugin5.Provider/ApplyResourceChange application/grpc - - 200 - application/grpc 3.6120ms
-2025-03-30 18:56:45.910 +05:00 [INF] Request finished HTTP/2 POST https://localhost/tfplugin5.Provider/PlanResourceChange application/grpc - - 200 - application/grpc 38.8805ms
-2025-03-30 18:56:45.912 +05:00 [INF] Request starting HTTP/2 POST https://localhost/tfplugin5.Provider/ApplyResourceChange application/grpc -
-2025-03-30 18:57:23.304 +05:00 [INF] Request finished HTTP/2 POST https://localhost/tfplugin5.Provider/ApplyResourceChange application/grpc - - 200 - application/grpc 37392.6467ms
+2025-03-30 19:02:54.211 +05:00 [INF] Now listening on: https://localhost:5344
+2025-03-30 19:02:54.225 +05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-03-30 19:02:54.226 +05:00 [INF] Hosting environment: Production
+2025-03-30 19:02:54.226 +05:00 [INF] Content root path: M:\dev\csharp\k3s-terraform-provider\test
+2025-03-30 19:02:58.460 +05:00 [INF] Now listening on: https://localhost:5344
+2025-03-30 19:02:58.475 +05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-03-30 19:02:58.476 +05:00 [INF] Hosting environment: Production
+2025-03-30 19:02:58.477 +05:00 [INF] Content root path: M:\dev\csharp\k3s-terraform-provider\test
+2025-03-30 19:03:02.911 +05:00 [INF] Now listening on: https://localhost:5344
+2025-03-30 19:03:02.926 +05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-03-30 19:03:02.929 +05:00 [INF] Hosting environment: Production
+2025-03-30 19:03:02.929 +05:00 [INF] Content root path: M:\dev\csharp\k3s-terraform-provider\test
+2025-03-30 19:03:03.284 +05:00 [INF] Request starting HTTP/2 POST https://localhost/tfplugin5.Provider/PlanResourceChange application/grpc -
+2025-03-30 19:03:03.284 +05:00 [INF] Request starting HTTP/2 POST https://localhost/tfplugin5.Provider/PlanResourceChange application/grpc -
+2025-03-30 19:03:03.284 +05:00 [INF] Request starting HTTP/2 POST https://localhost/tfplugin5.Provider/PlanResourceChange application/grpc -
+2025-03-30 19:03:03.301 +05:00 [INF] Request finished HTTP/2 POST https://localhost/tfplugin5.Provider/PlanResourceChange application/grpc - - 200 - application/grpc 16.8891ms
+2025-03-30 19:03:03.305 +05:00 [INF] Request finished HTTP/2 POST https://localhost/tfplugin5.Provider/PlanResourceChange application/grpc - - 200 - application/grpc 21.0057ms
+2025-03-30 19:03:03.320 +05:00 [INF] Request finished HTTP/2 POST https://localhost/tfplugin5.Provider/PlanResourceChange application/grpc - - 200 - application/grpc 35.4283ms
+2025-03-30 19:03:03.322 +05:00 [INF] Request starting HTTP/2 POST https://localhost/tfplugin5.Provider/PlanResourceChange application/grpc -
+2025-03-30 19:03:03.335 +05:00 [ERR] Error when executing service method 'PlanResourceChange'.
+MessagePack.MessagePackSerializationException: Failed to deserialize K3SProvider.Resources.AgentResource value.
+ ---> MessagePack.MessagePackSerializationException: Unexpected msgpack code 212 (fixext 1) encountered.
+   at MessagePack.MessagePackReader.ThrowInvalidCode(Byte code)
+   at MessagePack.MessagePackReader.GetStringLengthInBytes()
+   at MessagePack.Formatters.NullableStringFormatter.Deserialize(MessagePackReader& reader, MessagePackSerializerOptions options)
+   at MessagePack.Formatters.K3SProvider_Resources_AgentResourceFormatter6.Deserialize(MessagePackReader& reader, MessagePackSerializerOptions options)
+   at MessagePack.MessagePackSerializer.Deserialize[T](MessagePackReader& reader, MessagePackSerializerOptions options)
+   --- End of inner exception stack trace ---
+   at MessagePack.MessagePackSerializer.Deserialize[T](MessagePackReader& reader, MessagePackSerializerOptions options)
+   at MessagePack.MessagePackSerializer.Deserialize[T](ReadOnlyMemory`1 buffer, MessagePackSerializerOptions options, CancellationToken cancellationToken)
+   at TerraformPluginDotNet.Serialization.DefaultDynamicValueSerializer.DeserializeMsgPack[T](ReadOnlyMemory`1 value) in M:\dev\csharp\k3s-terraform-provider\TerraformPluginDotNet\Serialization\DefaultDynamicValueSerializer.cs:line 16
+   at TerraformPluginDotNet.ResourceProvider.ResourceProviderHost`1.DeserializeDynamicValue(DynamicValue value) in M:\dev\csharp\k3s-terraform-provider\TerraformPluginDotNet\ResourceProvider\ResourceProviderHost.cs:line 111
+   at TerraformPluginDotNet.ResourceProvider.ResourceProviderHost`1.PlanResourceChange(Request request) in M:\dev\csharp\k3s-terraform-provider\TerraformPluginDotNet\ResourceProvider\ResourceProviderHost.cs:line 49
+   at Grpc.Shared.Server.UnaryServerMethodInvoker`3.AwaitInvoker(Task`1 invokerTask, GrpcActivatorHandle`1 serviceHandle)
+   at Grpc.Shared.Server.UnaryServerMethodInvoker`3.AwaitInvoker(Task`1 invokerTask, GrpcActivatorHandle`1 serviceHandle)
+   at Grpc.AspNetCore.Server.Internal.CallHandlers.UnaryServerCallHandler`3.HandleCallAsyncCore(HttpContext httpContext, HttpContextServerCallContext serverCallContext)
+   at Grpc.AspNetCore.Server.Internal.CallHandlers.ServerCallHandlerBase`3.<HandleCallAsync>g__AwaitHandleCall|8_0(HttpContextServerCallContext serverCallContext, Method`2 method, Task handleCall)
+2025-03-30 19:03:03.351 +05:00 [INF] Request finished HTTP/2 POST https://localhost/tfplugin5.Provider/PlanResourceChange application/grpc - - 200 0 application/grpc 28.6177ms
+2025-03-30 19:03:08.392 +05:00 [INF] Now listening on: https://localhost:5344
+2025-03-30 19:03:08.406 +05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-03-30 19:03:08.406 +05:00 [INF] Hosting environment: Production
+2025-03-30 19:03:08.407 +05:00 [INF] Content root path: M:\dev\csharp\k3s-terraform-provider\test
+2025-03-30 19:03:12.826 +05:00 [INF] Now listening on: https://localhost:5344
+2025-03-30 19:03:12.843 +05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-03-30 19:03:12.845 +05:00 [INF] Hosting environment: Production
+2025-03-30 19:03:12.845 +05:00 [INF] Content root path: M:\dev\csharp\k3s-terraform-provider\test
+2025-03-30 19:03:17.660 +05:00 [INF] Now listening on: https://localhost:5344
+2025-03-30 19:03:17.677 +05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-03-30 19:03:17.678 +05:00 [INF] Hosting environment: Production
+2025-03-30 19:03:17.678 +05:00 [INF] Content root path: M:\dev\csharp\k3s-terraform-provider\test
+2025-03-30 19:03:18.110 +05:00 [INF] Request starting HTTP/2 POST https://localhost/tfplugin5.Provider/PlanResourceChange application/grpc -
+2025-03-30 19:03:18.110 +05:00 [INF] Request starting HTTP/2 POST https://localhost/tfplugin5.Provider/PlanResourceChange application/grpc -
+2025-03-30 19:03:18.110 +05:00 [INF] Request starting HTTP/2 POST https://localhost/tfplugin5.Provider/PlanResourceChange application/grpc -
+2025-03-30 19:03:18.128 +05:00 [INF] Request finished HTTP/2 POST https://localhost/tfplugin5.Provider/PlanResourceChange application/grpc - - 200 - application/grpc 17.2929ms
+2025-03-30 19:03:18.131 +05:00 [INF] Request finished HTTP/2 POST https://localhost/tfplugin5.Provider/PlanResourceChange application/grpc - - 200 - application/grpc 20.8966ms
+2025-03-30 19:03:18.148 +05:00 [INF] Request finished HTTP/2 POST https://localhost/tfplugin5.Provider/PlanResourceChange application/grpc - - 200 - application/grpc 37.2312ms
+2025-03-30 19:03:18.151 +05:00 [INF] Request starting HTTP/2 POST https://localhost/tfplugin5.Provider/PlanResourceChange application/grpc -
+2025-03-30 19:03:18.166 +05:00 [ERR] Error when executing service method 'PlanResourceChange'.
+MessagePack.MessagePackSerializationException: Failed to deserialize K3SProvider.Resources.AgentResource value.
+ ---> MessagePack.MessagePackSerializationException: Unexpected msgpack code 212 (fixext 1) encountered.
+   at MessagePack.MessagePackReader.ThrowInvalidCode(Byte code)
+   at MessagePack.MessagePackReader.GetStringLengthInBytes()
+   at MessagePack.Formatters.NullableStringFormatter.Deserialize(MessagePackReader& reader, MessagePackSerializerOptions options)
+   at MessagePack.Formatters.K3SProvider_Resources_AgentResourceFormatter6.Deserialize(MessagePackReader& reader, MessagePackSerializerOptions options)
+   at MessagePack.MessagePackSerializer.Deserialize[T](MessagePackReader& reader, MessagePackSerializerOptions options)
+   --- End of inner exception stack trace ---
+   at MessagePack.MessagePackSerializer.Deserialize[T](MessagePackReader& reader, MessagePackSerializerOptions options)
+   at MessagePack.MessagePackSerializer.Deserialize[T](ReadOnlyMemory`1 buffer, MessagePackSerializerOptions options, CancellationToken cancellationToken)
+   at TerraformPluginDotNet.Serialization.DefaultDynamicValueSerializer.DeserializeMsgPack[T](ReadOnlyMemory`1 value) in M:\dev\csharp\k3s-terraform-provider\TerraformPluginDotNet\Serialization\DefaultDynamicValueSerializer.cs:line 16
+   at TerraformPluginDotNet.ResourceProvider.ResourceProviderHost`1.DeserializeDynamicValue(DynamicValue value) in M:\dev\csharp\k3s-terraform-provider\TerraformPluginDotNet\ResourceProvider\ResourceProviderHost.cs:line 111
+   at TerraformPluginDotNet.ResourceProvider.ResourceProviderHost`1.PlanResourceChange(Request request) in M:\dev\csharp\k3s-terraform-provider\TerraformPluginDotNet\ResourceProvider\ResourceProviderHost.cs:line 49
+   at Grpc.Shared.Server.UnaryServerMethodInvoker`3.AwaitInvoker(Task`1 invokerTask, GrpcActivatorHandle`1 serviceHandle)
+   at Grpc.Shared.Server.UnaryServerMethodInvoker`3.AwaitInvoker(Task`1 invokerTask, GrpcActivatorHandle`1 serviceHandle)
+   at Grpc.AspNetCore.Server.Internal.CallHandlers.UnaryServerCallHandler`3.HandleCallAsyncCore(HttpContext httpContext, HttpContextServerCallContext serverCallContext)
+   at Grpc.AspNetCore.Server.Internal.CallHandlers.ServerCallHandlerBase`3.<HandleCallAsync>g__AwaitHandleCall|8_0(HttpContextServerCallContext serverCallContext, Method`2 method, Task handleCall)
+2025-03-30 19:03:18.180 +05:00 [INF] Request finished HTTP/2 POST https://localhost/tfplugin5.Provider/PlanResourceChange application/grpc - - 200 0 application/grpc 28.9566ms
