@@ -45,20 +45,20 @@ resource "k3s_server" "master" {
   }
 }
 
-resource "k3s_agent" "agent" {
-  count = length(local.agents)
-
-  name  = local.agents[count.index].name
-  token = k3s_server.master.token
-  url   = k3s_server.master.url
-
-  ssh = {
-    host     = local.agents[count.index].ip
-    port     = 22
-    username = local.agents[count.index].username
-    password = local.agents[count.index].password
-  }
-}
+# resource "k3s_agent" "agent" {
+#   count = length(local.agents)
+# 
+#   name  = local.agents[count.index].name
+#   token = k3s_server.master.token
+#   url   = k3s_server.master.url
+# 
+#   ssh = {
+#     host     = local.agents[count.index].ip
+#     port     = 22
+#     username = local.agents[count.index].username
+#     password = local.agents[count.index].password
+#   }
+# }
 
 output "master_token" {
   value = k3s_server.master.token
@@ -66,4 +66,8 @@ output "master_token" {
 
 output "master_url" {
   value = k3s_server.master.url
+}
+
+output "master_kube_config" {
+  value = k3s_server.master.kube_config
 }

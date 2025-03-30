@@ -135,6 +135,6 @@ public class K3SInstaller
     var command = "sudo cat /etc/rancher/k3s/k3s.yaml";
     Logger.Log(command);
     var result = sshClient.RunCommand(command);
-    return result.Result.Trim();
+    return result.Result.Trim().Replace("127.0.0.1", _host);
   }
 }
