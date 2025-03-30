@@ -42,10 +42,10 @@ output "cluster_id" {
   value = k3s_cluster.smarthome.id
 }
 
-output "master_token" {
-  value = k3s_server.master.token
-}
-
-output "master_url" {
-  value = k3s_server.master.url
-}
+// output "master_token" {
+//   value = k3s_server.master.token
+// }
+// 
+// output "master_url" {
+//   value = k3s_server.master.url
+// }
