@@ -23,8 +23,9 @@ public class AgentProvider : IResourceProvider<AgentResource>
 
   public Task<AgentResource> CreateAsync(AgentResource planned)
   {
+    var version = _configurator.Config?.K3SVersion;
     var installer = new K3SInstaller(planned);
-    installer.InstallK3SAgent(planned.Version, planned.Url, planned.Token);
+    installer.InstallK3SAgent(version, planned.Url, planned.Token);
     return Task.FromResult(planned);
   }
 

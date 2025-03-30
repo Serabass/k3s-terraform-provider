@@ -35,8 +35,9 @@ public class ServerProvider : IResourceProvider<ServerResource>
 
   public Task<ServerResource> CreateAsync(ServerResource planned)
   {
+    var version = _configurator.Config?.K3SVersion;
     var installer = planned.CreateInstaller();
-    installer.InstallK3SServer(planned.Version);
+    installer.InstallK3SServer(version);
     planned.Token = installer.GetK3SServerToken();
     planned.Url = $"https://{planned.Host}:6443";
 
@@ -60,14 +61,11 @@ public class ServerProvider : IResourceProvider<ServerResource>
 
   public Task<ServerResource> UpdateAsync(ServerResource? prior, ServerResource planned)
   {
-    if (planned.Version != prior?.Version)
-    {
-      var installer = planned.CreateInstaller();
+    var version = _configurator.Config?.K3SVersion;
+    var installer = planned.CreateInstaller();
 
-      // installer.UninstallK3SServer();
-      installer.InstallK3SServer(planned.Version);
-    }
-
+    // installer.UninstallK3SServer();
+    installer.InstallK3SServer(version);
     return Task.FromResult(planned);
   }
 

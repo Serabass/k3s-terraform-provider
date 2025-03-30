@@ -6,7 +6,7 @@ namespace K3SProvider;
 [MessagePackObject]
 public class Configuration
 {
-  [Key("name")]
-  [Description("Name of the cluster.")]
-  public string? Name { get; set; }
+  [Key("k3s_version")]
+  [Description("Version of K3S.")]
+  public string? K3SVersion { get; set; }
 }

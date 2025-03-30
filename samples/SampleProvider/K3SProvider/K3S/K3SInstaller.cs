@@ -40,7 +40,7 @@ public class K3SInstaller
     {
     }
 
-  public string InstallK3SServer(string version)
+  public string InstallK3SServer(string? version)
   {
     using var sshClient = new SshClient(_connectionInfo);
     sshClient.Connect();
@@ -50,7 +50,7 @@ public class K3SInstaller
     return GetK3SServerToken();
   }
 
-  public string InstallK3SAgent(string version, string url, string token)
+  public string InstallK3SAgent(string? version, string url, string token)
   {
     using var sshClient = new SshClient(_connectionInfo);
     sshClient.Connect();

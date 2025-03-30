@@ -20,6 +20,7 @@ locals {
 
 provider "k3s" {
   # Configuration options
+  k3s_version = "v1.32.3"
 }
 
 resource "k3s_cluster" "test" {
@@ -33,17 +34,16 @@ resource "k3s_server" "master" {
   port = 22
   username = local.master.username
   password = local.master.password
-  version = "v1.32.3"
 }
 
 output "cluster_id" {
   value = k3s_cluster.test.id
 }
 
-# output "master_token" {
-#   value = k3s_server.master.token
-# }
+output "master_token" {
+  value = k3s_server.master.token
+}
 
-# output "master_url" {
-#   value = k3s_server.master.url
-# }
+output "master_url" {
+  value = k3s_server.master.url
+}

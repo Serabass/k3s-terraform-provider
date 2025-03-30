@@ -15,35 +15,31 @@ public class AgentResource
   public string ClusterId { get; set; } = null!;
 
   [Key("name")]
-  [Description("Name of the server.")]
+  [Description("Name of the agent.")]
   [Required]
   public string Name { get; set; } = null!;
 
   [Key("host")]
-  [Description(" Host of the server.")]
+  [Description("Host of the agent.")]
   [Required]
   public string Host { get; set; } = null!;
 
   [Key("port")]
-  [Description("Port of the server.")]
+  [Description("Port of the agent.")]
   public int Port { get; set; }
 
   [Key("username")]
-  [Description("Username of the server.")]
+  [Description("SSH Username of the agent.")]
   [Required]
   public string Username { get; set; } = null!;
 
   [Key("password")]
-  [Description("Password of the server.")]
+  [Description("SSH Password of the agent.")]
   public string Password { get; set; } = null!;
 
   [Key("ssh_key")]
-  [Description("SSH key of the server.")]
+  [Description("SSH key of the agent.")]
   public string SshKey { get; set; } = null!;
-
-  [Key("version")]
-  [Description("Version of the server.")]
-  public string Version { get; set; } = null!;
 
   [Key("url")]
   [Description("URL of the server.")]
