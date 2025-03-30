@@ -6,7 +6,7 @@ using TerraformPluginDotNet.Serialization;
 
 namespace K3SProvider.Resources;
 
-[SchemaVersion(2)]
+[SchemaVersion(1)]
 [MessagePackObject]
 public class ServerResource
 {
@@ -20,38 +20,23 @@ public class ServerResource
   [Required]
   public string Name { get; set; } = null!;
 
-  [Key("host")]
-  [Description("Host of the server.")]
+  [Key("ssh")]
+  [Description("SSH configuration.")]
   [Required]
-  public string Host { get; set; } = null!;
-
-  [Key("port")]
-  [Description("SSH Port of the server.")]
-  public int Port { get; set; }
-
-  [Key("username")]
-  [Description("SSH Username of the server.")]
-  [Required]
-  public string Username { get; set; } = null!;
-
-  [Key("password")]
-  [Description("SSH Password of the server.")]
-  public string Password { get; set; } = null!;
-
-  [Key("ssh_key")]
-  [Description("SSH key of the server.")]
-  public string SshKey { get; set; } = null!;
+  public SSH Ssh { get; set; } = null!;
 
   [Key("token")]
   [Description("Token of the server.")]
   [Computed]
-  [MessagePackFormatter(typeof(ComputedStringValueFormatter))]
+
+  // [MessagePackFormatter(typeof(ComputedStringValueFormatter))]
   public string Token { get; set; } = null!;
 
   [Key("url")]
   [Description("URL of the server.")]
   [Computed]
-  [MessagePackFormatter(typeof(ComputedStringValueFormatter))]
+
+  // [MessagePackFormatter(typeof(ComputedStringValueFormatter))]
   public string Url { get; set; } = string.Empty;
 
   public K3SInstaller CreateInstaller(string? version) => new(this, version);

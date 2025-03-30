@@ -5,7 +5,7 @@ using TerraformPluginDotNet.Resources;
 
 namespace K3SProvider.Resources;
 
-[SchemaVersion(2)]
+[SchemaVersion(1)]
 [MessagePackObject]
 public class AgentResource
 {
@@ -19,27 +19,10 @@ public class AgentResource
   [Required]
   public string Name { get; set; } = null!;
 
-  [Key("host")]
-  [Description("Host of the agent.")]
+  [Key("ssh")]
+  [Description("SSH configuration.")]
   [Required]
-  public string Host { get; set; } = null!;
-
-  [Key("port")]
-  [Description("Port of the agent.")]
-  public int Port { get; set; }
-
-  [Key("username")]
-  [Description("SSH Username of the agent.")]
-  [Required]
-  public string Username { get; set; } = null!;
-
-  [Key("password")]
-  [Description("SSH Password of the agent.")]
-  public string Password { get; set; } = null!;
-
-  [Key("ssh_key")]
-  [Description("SSH key of the agent.")]
-  public string SshKey { get; set; } = null!;
+  public SSH Ssh { get; set; } = null!;
 
   [Key("url")]
   [Description("URL of the server.")]

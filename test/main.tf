@@ -2,7 +2,7 @@
 terraform {
   required_providers {
     k3s = {
-      source = "example.com/serabass/k3s"
+      source  = "example.com/serabass/k3s"
       version = "~> 1.0.0"
     }
   }
@@ -10,8 +10,8 @@ terraform {
 
 locals {
   master = {
-    name = "master"
-    ip = "192.168.88.15"
+    name     = "master"
+    ip       = "192.168.88.15"
     username = "a"
     password = "a"
   }
@@ -29,11 +29,13 @@ resource "k3s_cluster" "smarthome" {
 
 resource "k3s_server" "master" {
   cluster_id = k3s_cluster.smarthome.id
-  name = local.master.name
-  host = local.master.ip
-  port = 22
-  username = local.master.username
-  password = local.master.password
+  name       = local.master.name
+  ssh = {
+    host       = local.master.ip
+    port       = 22
+    username   = local.master.username
+    password   = local.master.password
+  }
 }
 
 output "cluster_id" {

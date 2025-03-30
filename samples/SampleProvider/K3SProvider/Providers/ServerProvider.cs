@@ -23,7 +23,7 @@ public class ServerProvider : IResourceProvider<ServerResource>
     if (prior is null)
       return Task.FromResult(proposed);
 
-    if (proposed.Host != prior.Host)
+    if (proposed.Ssh.Host != prior.Ssh.Host)
     {
       var version = _configurator.Config?.K3SVersion;
       var installer = prior.CreateInstaller(version);
@@ -41,7 +41,7 @@ public class ServerProvider : IResourceProvider<ServerResource>
     var installer = planned.CreateInstaller(version);
     installer.InstallK3SServer();
     planned.Token = installer.GetK3SServerToken();
-    planned.Url = $"https://{planned.Host}:6443";
+    planned.Url = $"https://{planned.Ssh.Host}:6443";
 
     return Task.FromResult(planned);
   }

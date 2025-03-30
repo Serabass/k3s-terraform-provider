@@ -39,12 +39,24 @@ public class K3SInstaller
   }
 
   public K3SInstaller(ServerResource server, string? version)
-    : this(server.Host, server.Port, server.Username, server.Password, server.SshKey, version)
+    : this(
+      server.Ssh.Host,
+      server.Ssh.Port,
+      server.Ssh.Username,
+      server.Ssh.Password,
+      server.Ssh.SshKey,
+      version)
     {
     }
 
   public K3SInstaller(AgentResource agent, string? version)
-    : this(agent.Host, agent.Port, agent.Username, agent.Password, agent.SshKey, version)
+    : this(
+      agent.Ssh.Host,
+      agent.Ssh.Port,
+      agent.Ssh.Username,
+      agent.Ssh.Password,
+      agent.Ssh.SshKey,
+      version)
     {
     }
 

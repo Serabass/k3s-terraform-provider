@@ -5,7 +5,7 @@ using TerraformPluginDotNet.Serialization;
 
 namespace K3SProvider.Resources;
 
-[SchemaVersion(2)]
+[SchemaVersion(1)]
 [MessagePackObject]
 public class ClusterResource
 {
