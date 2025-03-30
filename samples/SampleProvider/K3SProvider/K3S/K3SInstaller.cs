@@ -2,6 +2,7 @@ namespace K3SProvider.K3S;
 
 using System;
 using System.IO;
+using System.Text;
 using K3SProvider.Resources;
 using Renci.SshNet;
 
@@ -16,7 +17,13 @@ public class K3SInstaller
 
   private readonly ConnectionInfo _connectionInfo;
 
-  public K3SInstaller(string host, int port, string username, string password, string sshKey, string? version)
+  public K3SInstaller(
+    string host,
+    int port,
+    string username,
+    string password,
+    string sshKey,
+    string? version)
   {
     _host = host;
     _port = port;
@@ -46,8 +53,13 @@ public class K3SInstaller
     using var sshClient = new SshClient(_connectionInfo);
     sshClient.Connect();
 
-    var command = $"curl -sfL https://get.k3s.io | INSTALL_K3S_VERSION={_version}+k3s1 sh -";
-    var result = sshClient.RunCommand(command);
+    var command = new StringBuilder($"curl -sfL https://get.k3s.io");
+    if (_version is not null)
+    {
+      command.Append($" | INSTALL_K3S_VERSION={_version}");
+    }
+    command.Append($" sh -");
+    var result = sshClient.RunCommand(command.ToString());
     return GetK3SServerToken();
   }
 
@@ -56,9 +68,17 @@ public class K3SInstaller
     using var sshClient = new SshClient(_connectionInfo);
     sshClient.Connect();
 
-    var command =
-      $"curl -sfL https://get.k3s.io | INSTALL_K3S_VERSION={_version}+k3s1 K3S_URL={url} K3S_TOKEN={token} sh -";
-    var result = sshClient.RunCommand(command);
+    var command = new StringBuilder($"curl -sfL https://get.k3s.io");
+
+    if (_version is not null)
+    {
+      command.Append($" | INSTALL_K3S_VERSION={_version}");
+    }
+
+    command.Append($" K3S_URL={url} ");
+    command.Append($" K3S_TOKEN={token} ");
+    command.Append($" sh - ");
+    var result = sshClient.RunCommand(command.ToString());
     return result.Result;
   }
 
