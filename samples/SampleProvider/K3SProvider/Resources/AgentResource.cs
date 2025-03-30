@@ -9,11 +9,6 @@ namespace K3SProvider.Resources;
 [MessagePackObject]
 public class AgentResource
 {
-  [Key("cluster_id")]
-  [Description("ID of the cluster.")]
-  [Required]
-  public string ClusterId { get; set; } = null!;
-
   [Key("name")]
   [Description("Name of the agent.")]
   [Required]
@@ -26,10 +21,12 @@ public class AgentResource
 
   [Key("url")]
   [Description("URL of the server.")]
+  [Required]
   public string Url { get; set; } = null!;
 
   [Key("token")]
   [Description("Token of the server.")]
+  [Required]
   public string Token { get; set; } = null!;
 
   public K3SInstaller CreateInstaller(string? version) => new(this, version);

@@ -6,7 +6,7 @@ using TerraformPluginDotNet.Serialization;
 
 namespace K3SProvider.Resources;
 
-[SchemaVersion(2)]
+[SchemaVersion(1)]
 [MessagePackObject]
 public class SSH
 {
@@ -17,7 +17,7 @@ public class SSH
 
   [Key("port")]
   [Description("SSH Port of the server.")]
-  public int Port { get; set; }
+  public int Port { get; set; } = 22;
 
   [Key("username")]
   [Description("SSH Username of the server.")]

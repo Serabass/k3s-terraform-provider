@@ -10,11 +10,6 @@ namespace K3SProvider.Resources;
 [MessagePackObject]
 public class ServerResource
 {
-  [Key("cluster_id")]
-  [Description("ID of the cluster.")]
-  [Required]
-  public string ClusterId { get; set; } = null!;
-
   [Key("name")]
   [Description("Name of the server.")]
   [Required]
@@ -36,6 +31,12 @@ public class ServerResource
   [Computed]
   [MessagePackFormatter(typeof(ComputedStringValueFormatter))]
   public string Url { get; set; } = string.Empty;
+
+  [Key("kube_config")]
+  [Description("Kube config of the server.")]
+  [Computed]
+  [MessagePackFormatter(typeof(ComputedStringValueFormatter))]
+  public string KubeConfig { get; set; } = string.Empty;
 
   public K3SInstaller CreateInstaller(string? version) => new(this, version);
 }

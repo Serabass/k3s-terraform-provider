@@ -126,4 +126,15 @@ public class K3SInstaller
     var result = sshClient.RunCommand(command);
     return result.Result.Trim();
   }
+
+  public string GetK3SServerKubeConfig()
+  {
+    using var sshClient = new SshClient(_connectionInfo);
+    sshClient.Connect();
+
+    var command = "sudo cat /etc/rancher/k3s/k3s.yaml";
+    Logger.Log(command);
+    var result = sshClient.RunCommand(command);
+    return result.Result.Trim();
+  }
 }

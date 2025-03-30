@@ -21,12 +21,12 @@ class Program
         services.AddSingleton<SampleConfigurator>();
         services.AddTerraformProviderConfigurator<Configuration, SampleConfigurator>();
 
-        services.AddSingleton<IResourceProvider<ClusterResource>, ClusterProvider>();
+        // services.AddSingleton<IResourceProvider<ClusterResource>, ClusterProvider>();
         services.AddSingleton<IResourceProvider<ServerResource>, ServerProvider>();
         services.AddSingleton<IResourceProvider<AgentResource>, AgentProvider>();
         services.AddSingleton<IResourceProvider<SandboxResource>, SandboxProvider>();
 
-        registry.RegisterResource<ClusterResource>("k3s_cluster");
+        // registry.RegisterResource<ClusterResource>("k3s_cluster");
         registry.RegisterResource<ServerResource>("k3s_server");
         registry.RegisterResource<AgentResource>("k3s_agent");
         registry.RegisterResource<SandboxResource>("k3s_sandbox");

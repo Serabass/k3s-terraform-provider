@@ -15,12 +15,14 @@ locals {
     username = "a"
     password = "a"
   }
-  agents = [{
-    name     = "lenovo"
-    ip       = "192.168.88.11"
-    username = "a"
-    password = "a"
-  }]
+  agents = [
+    {
+      name     = "lenovo"
+      ip       = "192.168.88.11"
+      username = "a"
+      password = "a"
+    }
+  ]
 }
 
 provider "k3s" {
@@ -28,42 +30,34 @@ provider "k3s" {
   k3s_version = "v1.32.3"
 }
 
-resource "k3s_cluster" "smarthome" {
-  name = "smarthome"
-}
-
 resource "k3s_sandbox" "sandbox" {
   cluster_id = "0"
 }
 
 resource "k3s_server" "master" {
-  cluster_id = "0" # k3s_cluster.smarthome.id
-  name       = local.master.name
+  name = local.master.name
+
   ssh = {
-    host       = local.master.ip
-    port       = 22
-    username   = local.master.username
-    password   = local.master.password
+    host     = local.master.ip
+    port     = 22
+    username = local.master.username
+    password = local.master.password
   }
 }
 
 resource "k3s_agent" "agent" {
-  count      = length(local.agents)
+  count = length(local.agents)
 
-  cluster_id = "0" # k3s_cluster.smarthome.id
-  name       = local.agents[count.index].name
-  token      = k3s_server.master.token
-  url        = k3s_server.master.url
+  name  = local.agents[count.index].name
+  token = k3s_server.master.token
+  url   = k3s_server.master.url
+
   ssh = {
-    host       = local.agents[count.index].ip
-    port       = 22
-    username   = local.agents[count.index].username
-    password   = local.agents[count.index].password
+    host     = local.agents[count.index].ip
+    port     = 22
+    username = local.agents[count.index].username
+    password = local.agents[count.index].password
   }
-}
-
-output "cluster_id" {
-  value = k3s_cluster.smarthome.id
 }
 
 output "master_token" {

@@ -41,8 +41,9 @@ public class ServerProvider : IResourceProvider<ServerResource>
     var installer = planned.CreateInstaller(version);
     installer.InstallK3SServer();
 
-    planned.Token = installer.GetK3SServerToken();
-    planned.Url = $"https://{planned.Ssh.Host}:6443";
+    // planned.Token = installer.GetK3SServerToken();
+    // planned.Url = $"https://{planned.Ssh.Host}:6443";
+    // planned.KubeConfig = installer.GetK3SServerKubeConfig();
 
     return Task.FromResult(planned);
   }
@@ -63,6 +64,8 @@ public class ServerProvider : IResourceProvider<ServerResource>
 
     resource.Token = installer.GetK3SServerToken();
     resource.Url = $"https://{resource.Ssh.Host}:6443";
+    resource.KubeConfig = installer.GetK3SServerKubeConfig();
+
     return Task.FromResult(resource);
   }
 
