@@ -14,7 +14,7 @@ public class K3SInstaller
   private readonly string _password;
   private readonly string _sshKey;
   private readonly string? _version;
-
+  private readonly string? _token;
   private readonly ConnectionInfo _connectionInfo;
 
   public K3SInstaller(
@@ -23,7 +23,8 @@ public class K3SInstaller
     string username,
     string password,
     string sshKey,
-    string? version)
+    string? version,
+    string? token)
   {
     _host = host;
     _port = port;
@@ -31,6 +32,7 @@ public class K3SInstaller
     _password = password;
     _sshKey = sshKey;
     _version = version;
+    _token = token;
     _connectionInfo = new ConnectionInfo(
       _host,
       _port,
@@ -38,25 +40,27 @@ public class K3SInstaller
       new PasswordAuthenticationMethod(_username, _password));
   }
 
-  public K3SInstaller(ServerResource server, string? version)
+  public K3SInstaller(ServerResource server, string? version, string? token)
     : this(
       server.Ssh.Host,
       server.Ssh.Port,
       server.Ssh.Username,
       server.Ssh.Password,
       server.Ssh.SshKey,
-      version)
+      version,
+      token)
     {
     }
 
-  public K3SInstaller(AgentResource agent, string? version)
+  public K3SInstaller(AgentResource agent, string? version, string? token)
     : this(
       agent.Ssh.Host,
       agent.Ssh.Port,
       agent.Ssh.Username,
       agent.Ssh.Password,
       agent.Ssh.SshKey,
-      version)
+      version,
+      token)
     {
     }
 
@@ -66,10 +70,17 @@ public class K3SInstaller
     sshClient.Connect();
 
     var command = new StringBuilder($"curl -sfL https://get.k3s.io");
+
     if (_version is not null)
     {
       command.Append($" | INSTALL_K3S_VERSION={_version}+k3s1");
     }
+
+    if (_token is not null)
+    {
+      command.Append($" | K3S_TOKEN={_token}");
+    }
+
     command.Append($" sh -");
     Logger.Log(command.ToString());
     var result = sshClient.RunCommand(command.ToString());
@@ -88,8 +99,12 @@ public class K3SInstaller
       command.Append($" | INSTALL_K3S_VERSION={_version}");
     }
 
+    if (_token is not null)
+    {
+      command.Append($" | K3S_TOKEN={_token}");
+    }
+
     command.Append($" K3S_URL={url} ");
-    command.Append($" K3S_TOKEN={token} ");
     command.Append($" sh - ");
     Logger.Log(command.ToString());
     var result = sshClient.RunCommand(command.ToString());
@@ -135,6 +150,6 @@ public class K3SInstaller
     var command = "sudo cat /etc/rancher/k3s/k3s.yaml";
     Logger.Log(command);
     var result = sshClient.RunCommand(command);
-    return result.Result.Trim().Replace("127.0.0.1", _host);
+    return result.Result.Replace("127.0.0.1", _host).Trim();
   }
 }

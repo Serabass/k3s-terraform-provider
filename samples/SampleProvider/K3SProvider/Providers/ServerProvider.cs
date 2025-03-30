@@ -27,7 +27,8 @@ public class ServerProvider : IResourceProvider<ServerResource>
     {
       var version = _configurator.Config?.K3SVersion;
       var installer = prior.CreateInstaller(version);
-      installer.UninstallK3SServer();
+
+      // installer.UninstallK3SServer();
 
       // proposed.CreateInstaller().InstallK3SServer(proposed.Version);
     }
@@ -41,9 +42,9 @@ public class ServerProvider : IResourceProvider<ServerResource>
     var installer = planned.CreateInstaller(version);
     installer.InstallK3SServer();
 
-    // planned.Token = installer.GetK3SServerToken();
-    // planned.Url = $"https://{planned.Ssh.Host}:6443";
-    // planned.KubeConfig = installer.GetK3SServerKubeConfig();
+    planned.Token = installer.GetK3SServerToken();
+    planned.Url = $"https://{planned.Ssh.Host}:6443";
+    planned.KubeConfig = installer.GetK3SServerKubeConfig();
 
     return Task.FromResult(planned);
   }
