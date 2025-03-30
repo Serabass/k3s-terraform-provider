@@ -23,12 +23,12 @@ provider "k3s" {
   k3s_version = "v1.32.3"
 }
 
-resource "k3s_cluster" "test" {
-  name = "test"
+resource "k3s_cluster" "smarthome" {
+  name = "smarthome"
 }
 
 resource "k3s_server" "master" {
-  cluster_id = k3s_cluster.test.id
+  cluster_id = k3s_cluster.smarthome.id
   name = local.master.name
   host = local.master.ip
   port = 22
@@ -37,7 +37,7 @@ resource "k3s_server" "master" {
 }
 
 output "cluster_id" {
-  value = k3s_cluster.test.id
+  value = k3s_cluster.smarthome.id
 }
 
 output "master_token" {
